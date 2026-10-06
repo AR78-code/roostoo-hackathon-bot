@@ -51,6 +51,21 @@ class ClientTests(unittest.TestCase):
             client.place_order('BTC/USD', 'BUY', Decimal('1'))
         self.assertNotIsInstance(ctx.exception, AmbiguousOrder)
 
+    def test_spot_wallet_is_used_without_margin_or_legacy_funds(self):
+        response={'Success':True,'SpotWallet':{'USD':{'Free':100,'Lock':0}},
+                  'MarginWallet':{'USD':{'Free':900,'Lock':0}},'Wallet':{'USD':{'Free':500,'Lock':0}}}
+        client=Client('key','secret',opener=lambda *_a,**_k:io.BytesIO(json.dumps(response).encode()))
+        self.assertEqual(client.balance(),response['SpotWallet'])
+
+    def test_malformed_or_missing_spot_wallet_fails_closed(self):
+        cases=[{'MarginWallet':{'USD':{'Free':100,'Lock':0}}},
+               {'SpotWallet':None,'Wallet':{'USD':{'Free':100,'Lock':0}}},
+               {'SpotWallet':{}},{'SpotWallet':{'USD':{'Free':100}}}]
+        for response in cases:
+            with self.subTest(response=response):
+                client=Client('key','secret',opener=lambda *_a,**_k:io.BytesIO(json.dumps(response).encode()))
+                with self.assertRaises(APIError):client.balance()
+
     def test_malformed_order_response_is_ambiguous(self):
         client = Client('key', 'secret', opener=lambda *_a, **_k: io.BytesIO(b'not json'))
         with self.assertRaises(AmbiguousOrder):

@@ -111,7 +111,17 @@ class Client:
         return self.request("GET", "/v3/ticker")
 
     def balance(self):
-        return self.request("GET", "/v3/balance", signed=True)["Wallet"]
+        response = self.request("GET", "/v3/balance", signed=True)
+        # Newer accounts separate spot and margin funds. Never combine them or
+        # fall back to legacy funds when an explicit spot field is malformed.
+        field = "SpotWallet" if "SpotWallet" in response else "Wallet"
+        wallet = response.get(field)
+        if not isinstance(wallet, dict) or "USD" not in wallet:
+            raise APIError(f"Balance response missing a usable {field} with USD")
+        for coin, balance in wallet.items():
+            if not isinstance(balance, dict) or not {"Free", "Lock"} <= balance.keys():
+                raise APIError("Balance response contains malformed spot balances")
+        return wallet
 
     def query_order(self, order_id):
         return self.request("POST", "/v3/query_order", {"order_id": str(order_id)}, signed=True)
