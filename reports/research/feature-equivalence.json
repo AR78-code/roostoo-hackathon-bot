@@ -1,0 +1,34 @@
+{
+  "reference_record": "reports/research/batch-03/ml_entry055_vol01-2025-03.json",
+  "code_sha256": {
+    "__init__.py": "d7edd2be527439e05cca9f7ea03a91a4fccbaeda34521bff219f5a592d92300d",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "6377d8d1eb7864631c9ef94323bad04febe6fefb270b0a3ba6aacbac33c72905",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "0e40eaae526618e1491abea8375d4de4174baf5e71e7a8a8aa8b5f9a08beedfd",
+    "backtesting/simulator.py": "9b4890906d7fe30fd13d166a0e90dd135f9b4af41c878be67cfe522a0e603e87",
+    "client.py": "03f65b34e283fd7c8c62da403571b9ef3c0bc5431c4a772c5db880980fadaa8e",
+    "config.py": "0d54c3ff1af38f25683ccd46e1d1c00b3d8d35ad9e72974e9e6ee2b56a0b20e6",
+    "demo.py": "3c90ea9cfdce68767fdc7080cb2fdb0cffcef08fcc2531457fd7a120a634a8b1",
+    "engine.py": "7f84bb1b28326a3956a3250a602603778a88f4fa97dabaccd533385b9d49f9e7",
+    "main.py": "efcafb39272d3db2c9fd9513cca1a7aea44942d86451970027df31e98949a5d1",
+    "mathstats.py": "80d59715732d3d0cb7d1e758379df3383903d49fd84e076d1e4a2e0ccff61e17",
+    "ml.py": "b773a84860ad8ee16f74f07c4569e94482d4d970c4dbe99dc51209d2c94c6c32",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "state.py": "b349b4c68d346bfa325df63d85dba30e4872edb08a057e8aeaf2e787fac0dfbd",
+    "strategy.py": "3584b83ad5dc577aaf9cf8e092bcddc97a7f64a62c35b5f596f4e77212b13331"
+  },
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "metric_differences": {
+    "net_return": 0.0,
+    "max_drawdown": 0.0,
+    "fees": 0.0,
+    "turnover": 0.0,
+    "sharpe": 0.0,
+    "sortino": 0.0,
+    "calmar": 0.0
+  },
+  "strategy_trade_count": 54,
+  "note": "Replayed one forward development month after numerical optimization; identical order count and metrics within1e-10. Validation/test not opened."
+}

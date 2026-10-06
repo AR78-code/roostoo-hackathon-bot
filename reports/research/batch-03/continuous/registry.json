@@ -1,0 +1,59 @@
+{
+  "protocol": "No fitting or policy changes. Original three classifier policies, continuous March-June development with monthly artifact updates. Carry cash, holdings and drawdown latch. Double execution costs and independent 14-day resets as diagnostics.",
+  "policies": [
+    [
+      "ml_entry055",
+      0.55,
+      0.4,
+      0
+    ],
+    [
+      "ml_entry060",
+      0.6,
+      0.45,
+      0
+    ],
+    [
+      "ml_entry055_vol01",
+      0.55,
+      0.4,
+      0.01
+    ]
+  ],
+  "code_sha256": {
+    "config.py": "4ec74ee4cc0000c682ae1d85eafc690119671fc4bbbf1017af76476b2027ac6e",
+    "strategy.py": "514f91c5ef4863eeac3ffb3ec2e0e9dd11086f01b16b6ea12ed6edc7667b212a",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "ml.py": "2828d6e92ab21dfd6c0de5a10dd62a72ddf3f4ffd2d36d1f0da321a3c4107371",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "c73b61726da43a901318e9b3f5c0a9b03b0ef1565ad2a3a75360f81d045a2259",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "0e40eaae526618e1491abea8375d4de4174baf5e71e7a8a8aa8b5f9a08beedfd",
+    "backtesting/simulator.py": "7b7e879b45609d988e565e7fdd9cb1a1cf71bb1534024775279fd63f2ea421fe"
+  },
+  "script_sha256": "75ada12b7dc31215c102503d3faa8ac87f680546fed6031d25de5d2dd2ed2ce8",
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "artifact_schedule": [
+    {
+      "effective_at": 1740787199.999999,
+      "path": "config/models/logistic-2025-03.json",
+      "sha256": "86391e650ef80b99adc607113f8612271f7c25182204e396c4a48f5ec2402e8a"
+    },
+    {
+      "effective_at": 1743465599.999999,
+      "path": "config/models/logistic-2025-04.json",
+      "sha256": "c1db75cc5f551ce8d747bfe9f8c243fd637bbbcb683c56f0672547cab79947e5"
+    },
+    {
+      "effective_at": 1746057599.999999,
+      "path": "config/models/logistic-2025-05.json",
+      "sha256": "8f0ae5430d293dbbd37f368d1900dba302105b07411a633bbd07e994188c692d"
+    },
+    {
+      "effective_at": 1748735999.999999,
+      "path": "config/models/logistic-2025-06.json",
+      "sha256": "3f0755f02c8946ede5f55e63ad6acd08a5b51131670a4d10ef9628b7da9808c5"
+    }
+  ]
+}

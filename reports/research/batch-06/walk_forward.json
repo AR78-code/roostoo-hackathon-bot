@@ -1,0 +1,33 @@
+{
+  "note": "Past-month-selected configs, next-month independent cash starts. No validation/test used. Cash fallback when no candidate has positive compounded past return and >=2 defined monthly scores.",
+  "folds": [
+    {
+      "window": "2025-03",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 2
+    },
+    {
+      "window": "2025-04",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 3
+    },
+    {
+      "window": "2025-05",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 4
+    },
+    {
+      "window": "2025-06",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 5
+    }
+  ]
+}

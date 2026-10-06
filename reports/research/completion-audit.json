@@ -1,0 +1,33 @@
+{
+  "policy_count": 45,
+  "cohort_count": 7,
+  "qualified_for_validation": 0,
+  "best_development_candidate": {
+    "batch": "batch-07",
+    "candidate": "extended_ml_entry060",
+    "scope": "Jan\u2013Jun continuous forward; 2024+ earlier training",
+    "net_return": 0.05062215375149326,
+    "median_monthly_score": 6.367265171471516,
+    "positive_months": 5,
+    "fees": 950.0080475076171,
+    "max_drawdown": 0.059031547816932206,
+    "stress_return": 0.026101342975577202,
+    "positive_fortnights": 8,
+    "median_fortnight_active_days": 4.0,
+    "eligible_for_validation": false,
+    "note": "Training-history amendment recorded before outcomes; original holdouts untouched."
+  },
+  "risk_live_config_unchanged": true,
+  "test_consumed": false,
+  "final_test_required_now": false,
+  "reliability_tests_passed": 79,
+  "source_and_model_audit": "reports/research/artifact-audit.json",
+  "evidence": {
+    "diagnosis": "reports/research/baseline-diagnosis.json",
+    "score": "src/trading_bot/backtesting/metrics.py",
+    "chronology": "reports/research/batch-07/calibration.json",
+    "reports": "reports/research/overview.json",
+    "handoff": "research/HANDOFF.md"
+  },
+  "completion_scope": "Bounded research/verification/handoff within amended half-allowance ceiling; no live activation and no claim of a validated profitable strategy."
+}

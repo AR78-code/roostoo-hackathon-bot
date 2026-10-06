@@ -1,0 +1,646 @@
+{
+  "runtime": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "config": {
+    "strategy": "sma",
+    "volatility_target": 0.0,
+    "model_path": "",
+    "model_entry_probability": 0.6,
+    "model_exit_probability": 0.45,
+    "model_entry_return": 0.002,
+    "model_exit_return": 0.0,
+    "pairs": [
+      "BTC/USD",
+      "ETH/USD"
+    ],
+    "interval_seconds": 300,
+    "fast_window": 12,
+    "slow_window": 48,
+    "signal_threshold": 0.003,
+    "max_pair_weight": 0.2,
+    "max_total_weight": 0.4,
+    "cash_reserve": 0.2,
+    "max_order_usd": 2000.0,
+    "min_order_usd": 25.0,
+    "rebalance_band": 0.02,
+    "max_spread": 0.005,
+    "max_drawdown": 0.1,
+    "fee_rate": 0.001,
+    "slippage": 0.001,
+    "max_quote_age_seconds": 30,
+    "paper_cash": 100000.0
+  },
+  "backtest_spec": {
+    "interval_seconds": 300,
+    "spread_bps": 2.0,
+    "amount_precision": 6,
+    "exchange_min_order": 1.0,
+    "development": {
+      "start": "2025-01-01",
+      "end": "2025-07-01"
+    },
+    "validation": {
+      "start": "2025-07-01",
+      "end": "2025-10-01"
+    },
+    "test": {
+      "start": "2025-10-01",
+      "end": "2026-01-01"
+    },
+    "forward_development": {
+      "start": "2025-03-01",
+      "end": "2025-07-01"
+    }
+  },
+  "provenance": {
+    "policies": [
+      [
+        "ridge_entry002",
+        0.002,
+        0
+      ],
+      [
+        "ridge_entry005",
+        0.005,
+        0
+      ],
+      [
+        "ridge_entry002_vol01",
+        0.002,
+        0.01
+      ]
+    ],
+    "ridge_penalty": 0.1,
+    "training_target_clip": [
+      -0.15,
+      0.15
+    ],
+    "label_horizon_bars": 288,
+    "availability_buffer_bars": 288,
+    "code_sha256": {
+      "config.py": "4ec74ee4cc0000c682ae1d85eafc690119671fc4bbbf1017af76476b2027ac6e",
+      "strategy.py": "514f91c5ef4863eeac3ffb3ec2e0e9dd11086f01b16b6ea12ed6edc7667b212a",
+      "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+      "ml.py": "2828d6e92ab21dfd6c0de5a10dd62a72ddf3f4ffd2d36d1f0da321a3c4107371",
+      "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+      "backtesting/cli.py": "c73b61726da43a901318e9b3f5c0a9b03b0ef1565ad2a3a75360f81d045a2259",
+      "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+      "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+      "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+      "backtesting/simulator.py": "7b7e879b45609d988e565e7fdd9cb1a1cf71bb1534024775279fd63f2ea421fe"
+    },
+    "script_sha256": "57cba78e218a0289e2d4dc311b62de37b0dd2b22d2b4815448c7a5f87aa2d021",
+    "feature_script_sha256": "e43ca395d193f1e3dfab274f97df5e5080d617b65ebee48238b0f37ca37882f3",
+    "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+    "protocol": "Earlier training only. Forward March-June monthly resets and continuous chronological model updates. Development only, no validation/test.",
+    "portfolio_configs": {
+      "ridge_entry002": [
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-03.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-04.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-05.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-06.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        }
+      ],
+      "ridge_entry005": [
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-03.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.005,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-04.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.005,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-05.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.005,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0,
+          "model_path": "config/models/ridge-2025-06.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.005,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        }
+      ],
+      "ridge_entry002_vol01": [
+        {
+          "strategy": "ridge",
+          "volatility_target": 0.01,
+          "model_path": "config/models/ridge-2025-03.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0.01,
+          "model_path": "config/models/ridge-2025-04.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0.01,
+          "model_path": "config/models/ridge-2025-05.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        },
+        {
+          "strategy": "ridge",
+          "volatility_target": 0.01,
+          "model_path": "config/models/ridge-2025-06.json",
+          "model_entry_probability": 0.6,
+          "model_exit_probability": 0.45,
+          "model_entry_return": 0.002,
+          "model_exit_return": 0.0,
+          "pairs": [
+            "BTC/USD",
+            "ETH/USD"
+          ],
+          "interval_seconds": 300,
+          "fast_window": 12,
+          "slow_window": 1153,
+          "signal_threshold": 0.003,
+          "max_pair_weight": 0.2,
+          "max_total_weight": 0.4,
+          "cash_reserve": 0.2,
+          "max_order_usd": 2000.0,
+          "min_order_usd": 25.0,
+          "rebalance_band": 0.02,
+          "max_spread": 0.005,
+          "max_drawdown": 0.1,
+          "fee_rate": 0.001,
+          "slippage": 0.001,
+          "max_quote_age_seconds": 30,
+          "paper_cash": 100000.0
+        }
+      ]
+    },
+    "model_schedules": {
+      "ridge_entry002": [
+        {
+          "effective_at": 1740787199.999999,
+          "path": "config/models/ridge-2025-03.json",
+          "sha256": "9c0b0988701aa2e7144f9a2a6b0fce51d01bf3c84faa5ced9311efdfb75230aa"
+        },
+        {
+          "effective_at": 1743465599.999999,
+          "path": "config/models/ridge-2025-04.json",
+          "sha256": "a8c4bda30ceb129333d2f68c93b9f7032392447d3b70e12c56ebef3ed9b95e36"
+        },
+        {
+          "effective_at": 1746057599.999999,
+          "path": "config/models/ridge-2025-05.json",
+          "sha256": "559ada28ebdcf368826c82acc5ff519583f6cdd743cfbad3e85029918e401bd0"
+        },
+        {
+          "effective_at": 1748735999.999999,
+          "path": "config/models/ridge-2025-06.json",
+          "sha256": "38c7a270b788da5d2190f5e256e74bc3c77305a43d2467ca631104598caacc21"
+        }
+      ],
+      "ridge_entry005": [
+        {
+          "effective_at": 1740787199.999999,
+          "path": "config/models/ridge-2025-03.json",
+          "sha256": "9c0b0988701aa2e7144f9a2a6b0fce51d01bf3c84faa5ced9311efdfb75230aa"
+        },
+        {
+          "effective_at": 1743465599.999999,
+          "path": "config/models/ridge-2025-04.json",
+          "sha256": "a8c4bda30ceb129333d2f68c93b9f7032392447d3b70e12c56ebef3ed9b95e36"
+        },
+        {
+          "effective_at": 1746057599.999999,
+          "path": "config/models/ridge-2025-05.json",
+          "sha256": "559ada28ebdcf368826c82acc5ff519583f6cdd743cfbad3e85029918e401bd0"
+        },
+        {
+          "effective_at": 1748735999.999999,
+          "path": "config/models/ridge-2025-06.json",
+          "sha256": "38c7a270b788da5d2190f5e256e74bc3c77305a43d2467ca631104598caacc21"
+        }
+      ],
+      "ridge_entry002_vol01": [
+        {
+          "effective_at": 1740787199.999999,
+          "path": "config/models/ridge-2025-03.json",
+          "sha256": "9c0b0988701aa2e7144f9a2a6b0fce51d01bf3c84faa5ced9311efdfb75230aa"
+        },
+        {
+          "effective_at": 1743465599.999999,
+          "path": "config/models/ridge-2025-04.json",
+          "sha256": "a8c4bda30ceb129333d2f68c93b9f7032392447d3b70e12c56ebef3ed9b95e36"
+        },
+        {
+          "effective_at": 1746057599.999999,
+          "path": "config/models/ridge-2025-05.json",
+          "sha256": "559ada28ebdcf368826c82acc5ff519583f6cdd743cfbad3e85029918e401bd0"
+        },
+        {
+          "effective_at": 1748735999.999999,
+          "path": "config/models/ridge-2025-06.json",
+          "sha256": "38c7a270b788da5d2190f5e256e74bc3c77305a43d2467ca631104598caacc21"
+        }
+      ]
+    },
+    "configuration_note": "Top-level config supplies common risk/execution settings; actual portfolio strategy configs and schedules are recorded separately.",
+    "report_repair": "Initial renderer lacked custom forward-period bounds; regenerated from saved curve/trade/signal CSV only. No strategy/model or market-data evaluation rerun."
+  },
+  "assumptions": [
+    "Composite score is 0.4 Sortino + 0.3 Sharpe + 0.3 Calmar using the documented research definitions, without normalization. It is undefined if any component is undefined; this is not a verified reproduction of organizer calculations.",
+    "Completed bar closes feed the configured strategy; signals execute at the next bar open. Sizing uses only that open and current holdings, never that bar's high/low/close.",
+    "Existing risk.plan handles sizing, free balance, reserve, spread, rounding, order caps and buy halts. At most one strategy order per bar; sells have priority as in the live engine.",
+    "Each split starts with fresh cash and risk state. Validation/test may use only preceding historical closes for indicator warm-up, without trading before the split.",
+    "Binance USDT prices are a proxy for Roostoo USD prices, assuming 1 USDT = 1 USD. Candle closes approximate the live bot's sampled ticker prices.",
+    "Bid/ask are synthetic from a constant configured spread. Market orders fill at open plus spread and adverse configured slippage; fees apply to executed notional. No partial fills, depth, volume limits, network latency or API outages are modeled.",
+    "All portfolios are liquidated at the last close minus spread/slippage with fees. These terminal accounting fills bypass per-order caps/precision and are separated from strategy-generated trades.",
+    "Cash earns zero. BTC buy/hold invests 100% including its entry fee. Allocation-matched buy/hold uses the configured maximum BTC/ETH target weights initially, leaves the remainder in cash, and does not rebalance. Passive benchmarks bypass strategy limits and buy halts.",
+    "Sharpe uses sample standard deviation of full UTC-day returns; Sortino uses root mean squared negative daily returns including zero downside on positive days. Both annualize with sqrt(365), zero risk-free rate and zero target return.",
+    "Calmar is calendar-time CAGR divided by maximum recorded drawdown. Ratios with fewer than two full days, zero variance/downside, or zero drawdown are N/A rather than fabricated infinities. Annualization over short periods can be misleading.",
+    "Maximum drawdown uses recorded bar-close equity and initial equity, including terminal costs. Intrabar losses may be larger. Buy-halt decisions check observed opens and closes, not intrabar highs/lows.",
+    "Turnover is total absolute executed notional divided by mean recorded equity, including entry/exit costs and terminal sales; it is not half-turnover or annualized.",
+    "Fixed chronological splits reduce leakage but do not establish statistical significance or profitability. Repeated validation selection can still overfit. Held-out data should be evaluated once after the strategy is frozen."
+  ],
+  "periods": {
+    "forward_development": {
+      "ridge_entry002": {
+        "composite_score": -2.272762953285609,
+        "net_return": -0.05599563413115116,
+        "final_equity": 94400.43658688488,
+        "max_drawdown": 0.08450785016958329,
+        "sharpe": -2.344182112037113,
+        "sortino": -2.518352512765458,
+        "calmar": -1.8738910485609737,
+        "cagr": -0.15835850396591408,
+        "turnover": 18.619564768090914,
+        "fees": 1778.9233397163218,
+        "trade_count": 891,
+        "strategy_trade_count": 889,
+        "mean_exposure": 0.03656477144430129,
+        "full_days_for_ratios": 122,
+        "buy_halt_timestamp": null
+      },
+      "ridge_entry005": {
+        "composite_score": -1.287247144819496,
+        "net_return": -0.025738504281513586,
+        "final_equity": 97426.14957184864,
+        "max_drawdown": 0.06753767164495905,
+        "sharpe": -1.2647577852975727,
+        "sortino": -1.436153757079036,
+        "calmar": -1.111194354662033,
+        "cagr": -0.07504747945889656,
+        "turnover": 10.565988085843754,
+        "fees": 1029.879092326028,
+        "trade_count": 517,
+        "strategy_trade_count": 515,
+        "mean_exposure": 0.030812820748960988,
+        "full_days_for_ratios": 122,
+        "buy_halt_timestamp": null
+      },
+      "ridge_entry002_vol01": {
+        "composite_score": -1.647921929856417,
+        "net_return": -0.012900722124674302,
+        "final_equity": 98709.92778753256,
+        "max_drawdown": 0.02531949000157785,
+        "sharpe": -1.5926351763017401,
+        "sortino": -1.7966725135983361,
+        "calmar": -1.504874571755202,
+        "cagr": -0.03810265667318458,
+        "turnover": 3.9130730088667094,
+        "fees": 387.0905118286557,
+        "trade_count": 195,
+        "strategy_trade_count": 193,
+        "mean_exposure": 0.023562829844309918,
+        "full_days_for_ratios": 122,
+        "buy_halt_timestamp": null
+      },
+      "cash": {
+        "composite_score": null,
+        "net_return": 0.0,
+        "final_equity": 100000.0,
+        "max_drawdown": 0.0,
+        "sharpe": null,
+        "sortino": null,
+        "calmar": null,
+        "cagr": 0.0,
+        "turnover": 0.0,
+        "fees": 0,
+        "trade_count": 0,
+        "strategy_trade_count": 0,
+        "mean_exposure": 0.0,
+        "full_days_for_ratios": 122,
+        "buy_halt_timestamp": null
+      },
+      "btc_buy_hold": {
+        "composite_score": 3.0102555663680386,
+        "net_return": 0.26493758474767737,
+        "final_equity": 126493.75847476775,
+        "max_drawdown": 0.21321614321318672,
+        "sharpe": 1.6739844282412817,
+        "sortino": 2.6819265583144993,
+        "calmar": 4.784298715232848,
+        "cagr": 1.020089720041752,
+        "turnover": 2.013669556027631,
+        "fees": 226.52042289455522,
+        "trade_count": 2,
+        "strategy_trade_count": 1,
+        "mean_exposure": 0.9999712879311962,
+        "full_days_for_ratios": 122,
+        "buy_halt_timestamp": null
+      },
+      "allocation_matched": {
+        "composite_score": 1.3912539355649085,
+        "net_return": 0.07421235274364624,
+        "final_equity": 107421.23527436462,
+        "max_drawdown": 0.141948714464738,
+        "sharpe": 0.970272131766215,
+        "sortino": 1.4884905264280124,
+        "calmar": 1.6825869515461302,
+        "cagr": 0.2388410547471156,
+        "turnover": 0.860061070318594,
+        "fees": 87.42869707459839,
+        "trade_count": 4,
+        "strategy_trade_count": 2,
+        "mean_exposure": 0.4079857972967822,
+        "full_days_for_ratios": 122,
+        "buy_halt_timestamp": null
+      }
+    }
+  }
+}

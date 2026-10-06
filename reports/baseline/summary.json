@@ -1,0 +1,212 @@
+{
+  "runtime": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "config": {
+    "pairs": [
+      "BTC/USD",
+      "ETH/USD"
+    ],
+    "interval_seconds": 300,
+    "fast_window": 12,
+    "slow_window": 48,
+    "signal_threshold": 0.003,
+    "max_pair_weight": 0.2,
+    "max_total_weight": 0.4,
+    "cash_reserve": 0.2,
+    "max_order_usd": 2000.0,
+    "min_order_usd": 25.0,
+    "rebalance_band": 0.02,
+    "max_spread": 0.005,
+    "max_drawdown": 0.1,
+    "fee_rate": 0.001,
+    "slippage": 0.001,
+    "max_quote_age_seconds": 30,
+    "paper_cash": 100000.0
+  },
+  "backtest_spec": {
+    "interval_seconds": 300,
+    "spread_bps": 2.0,
+    "amount_precision": 6,
+    "exchange_min_order": 1.0,
+    "development": {
+      "start": "2025-01-01",
+      "end": "2025-07-01"
+    },
+    "validation": {
+      "start": "2025-07-01",
+      "end": "2025-10-01"
+    },
+    "test": {
+      "start": "2025-10-01",
+      "end": "2026-01-01"
+    }
+  },
+  "provenance": {
+    "test_status": "HELD OUT \u2014 not loaded or evaluated",
+    "data_sha256": {
+      "development": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+      "validation": "9d78f8ba55778b652efae095e204a80baeab5de7d2ddd430c5649f30eb5864f1"
+    },
+    "code_sha256": {
+      "config.py": "3afd489c5e315743cc406fd6de3dba490c81368ca37f0125829e260578d2d075",
+      "strategy.py": "a8413e544ee79be417590f6ad13dcac844cea20599177da399d326dbd7cb13b2",
+      "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+      "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+      "backtesting/cli.py": "aa73008edfe7d0134211f9b6b097d2e939c1407457d006670e48b6850ec2699b",
+      "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+      "backtesting/metrics.py": "8f539029a11e933b07ca9907837232613f7c7fad8eca21f973be0f9d4f7c0450",
+      "backtesting/report.py": "bf7358caf71078e6d36aa03c27439dd649c9ad93d31e0d56f17258894bf4668e",
+      "backtesting/simulator.py": "41f9ff41c24238122d460e56d78504082686934fb1bba25ea233a0dce0ba2415"
+    }
+  },
+  "assumptions": [
+    "Completed bar closes feed the existing SMA strategy; signals execute at the next bar open. Sizing uses only that open and current holdings, never that bar's high/low/close.",
+    "Existing risk.plan handles sizing, free balance, reserve, spread, rounding, order caps and buy halts. At most one strategy order per bar; sells have priority as in the live engine.",
+    "Each split starts with fresh cash and risk state. Validation/test may use only preceding historical closes for indicator warm-up, without trading before the split.",
+    "Binance USDT prices are a proxy for Roostoo USD prices, assuming 1 USDT = 1 USD. Candle closes approximate the live bot's sampled ticker prices.",
+    "Bid/ask are synthetic from a constant configured spread. Market orders fill at open plus spread and adverse configured slippage; fees apply to executed notional. No partial fills, depth, volume limits, network latency or API outages are modeled.",
+    "All portfolios are liquidated at the last close minus spread/slippage with fees. These terminal accounting fills bypass per-order caps/precision and are separated from strategy-generated trades.",
+    "Cash earns zero. BTC buy/hold invests 100% including its entry fee. Allocation-matched buy/hold uses the configured maximum BTC/ETH target weights initially, leaves the remainder in cash, and does not rebalance. Passive benchmarks bypass strategy limits and buy halts.",
+    "Sharpe uses sample standard deviation of full UTC-day returns; Sortino uses root mean squared negative daily returns including zero downside on positive days. Both annualize with sqrt(365), zero risk-free rate and zero target return.",
+    "Calmar is calendar-time CAGR divided by maximum recorded drawdown. Ratios with fewer than two full days, zero variance/downside, or zero drawdown are N/A rather than fabricated infinities. Annualization over short periods can be misleading.",
+    "Maximum drawdown uses recorded bar-close equity and initial equity, including terminal costs. Intrabar losses may be larger. Buy-halt decisions check observed opens and closes, not intrabar highs/lows.",
+    "Turnover is total absolute executed notional divided by mean recorded equity, including entry/exit costs and terminal sales; it is not half-turnover or annualized.",
+    "Fixed chronological splits reduce leakage but do not establish statistical significance or profitability. Repeated validation selection can still overfit. Held-out data should be evaluated once after the strategy is frozen."
+  ],
+  "periods": {
+    "development": {
+      "strategy": {
+        "net_return": -0.08298462072389534,
+        "final_equity": 91701.53792761046,
+        "max_drawdown": 0.10353821337280011,
+        "sharpe": -2.7081929018820894,
+        "sortino": -3.3572965384188764,
+        "calmar": -1.5481180642159884,
+        "cagr": -0.16028937845908128,
+        "turnover": 50.93983632355049,
+        "fees": 4758.895555497177,
+        "trade_count": 2382,
+        "strategy_trade_count": 2380,
+        "mean_exposure": 0.06846435528013393,
+        "full_days_for_ratios": 181,
+        "buy_halt_timestamp": 1740495000
+      },
+      "cash": {
+        "net_return": 0.0,
+        "final_equity": 100000.0,
+        "max_drawdown": 0.0,
+        "sharpe": null,
+        "sortino": null,
+        "calmar": null,
+        "cagr": 0.0,
+        "turnover": 0.0,
+        "fees": 0,
+        "trade_count": 0,
+        "strategy_trade_count": 0,
+        "mean_exposure": 0.0,
+        "full_days_for_ratios": 181,
+        "buy_halt_timestamp": null
+      },
+      "btc_buy_hold": {
+        "net_return": 0.1402221089008353,
+        "final_equity": 114022.21089008353,
+        "max_drawdown": 0.31541003933145095,
+        "sharpe": 0.7974010386757895,
+        "sortino": 1.2083360330482567,
+        "calmar": 0.9604552399413028,
+        "cagr": 0.30293722500598447,
+        "turnover": 2.0907064004371,
+        "fees": 214.03638303406012,
+        "trade_count": 2,
+        "strategy_trade_count": 1,
+        "mean_exposure": 0.999980500523806,
+        "full_days_for_ratios": 181,
+        "buy_halt_timestamp": null
+      },
+      "allocation_matched": {
+        "net_return": -0.023650342211059883,
+        "final_equity": 97634.96577889401,
+        "max_drawdown": 0.1911766761939414,
+        "sharpe": -0.13110164743766628,
+        "sortino": -0.18595142252985386,
+        "calmar": -0.24647061350884372,
+        "cagr": -0.047119432670102296,
+        "turnover": 0.8169695444630682,
+        "fees": 77.63251112124868,
+        "trade_count": 4,
+        "strategy_trade_count": 2,
+        "mean_exposure": 0.36697772392492417,
+        "full_days_for_ratios": 181,
+        "buy_halt_timestamp": null
+      }
+    },
+    "validation": {
+      "strategy": {
+        "net_return": -0.06178664853145832,
+        "final_equity": 93821.33514685417,
+        "max_drawdown": 0.10252557261338524,
+        "sharpe": -2.456309375071871,
+        "sortino": -3.611509449846891,
+        "calmar": -2.180498751312881,
+        "cagr": -0.2235568830611246,
+        "turnover": 62.34837430975299,
+        "fees": 6203.756377530703,
+        "trade_count": 3103,
+        "strategy_trade_count": 3101,
+        "mean_exposure": 0.2015012682801895,
+        "full_days_for_ratios": 92,
+        "buy_halt_timestamp": 1758763500
+      },
+      "cash": {
+        "net_return": 0.0,
+        "final_equity": 100000.0,
+        "max_drawdown": 0.0,
+        "sharpe": null,
+        "sortino": null,
+        "calmar": null,
+        "cagr": 0.0,
+        "turnover": 0.0,
+        "fees": 0,
+        "trade_count": 0,
+        "strategy_trade_count": 0,
+        "mean_exposure": 0.0,
+        "full_days_for_ratios": 92,
+        "buy_halt_timestamp": null
+      },
+      "btc_buy_hold": {
+        "net_return": 0.05995916149782188,
+        "final_equity": 105995.91614978218,
+        "max_drawdown": 0.13633989335404528,
+        "sharpe": 0.9328060353112068,
+        "sortino": 1.3614652868991635,
+        "calmar": 1.9061760923929445,
+        "cagr": 0.2598878451508848,
+        "turnover": 1.9341093598888968,
+        "fees": 206.0019950920668,
+        "trade_count": 2,
+        "strategy_trade_count": 1,
+        "mean_exposure": 0.9999616805603273,
+        "full_days_for_ratios": 92,
+        "buy_halt_timestamp": null
+      },
+      "allocation_matched": {
+        "net_return": 0.14414439517356925,
+        "final_equity": 114414.43951735692,
+        "max_drawdown": 0.08536507662173765,
+        "sharpe": 2.394225688326857,
+        "sortino": 3.8755694407275976,
+        "calmar": 8.27207928949529,
+        "cagr": 0.7061466823688546,
+        "turnover": 0.837018740392002,
+        "fees": 94.42875001558907,
+        "trade_count": 4,
+        "strategy_trade_count": 2,
+        "mean_exposure": 0.46685542371800537,
+        "full_days_for_ratios": 92,
+        "buy_halt_timestamp": null
+      }
+    }
+  }
+}

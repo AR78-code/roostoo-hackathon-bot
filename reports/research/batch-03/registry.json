@@ -1,0 +1,48 @@
+{
+  "policies": [
+    [
+      "ml_entry055",
+      0.55,
+      0.4,
+      0
+    ],
+    [
+      "ml_entry060",
+      0.6,
+      0.45,
+      0
+    ],
+    [
+      "ml_entry055_vol01",
+      0.55,
+      0.4,
+      0.01
+    ]
+  ],
+  "label_horizon_bars": 288,
+  "availability_buffer_bars": 288,
+  "code_sha256": {
+    "config.py": "ad8cfc0121ae4615df4268778f7f50e0843bc218e537ef9782e62ffa8c0d74d9",
+    "strategy.py": "e1da7bbc005c474e0008f0cb526f84c60948971325b1e9ffeee76fadeb38f24a",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "ml.py": "60534cb67d74b8a74bd6c889ab75b8726f6cbf498a8353dee4e5b0e03ffef516",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "efd2c4a71b86ec9376c3b4c0aadc1830ebcdb0700ad41a9e694573b335a92f0a",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+    "backtesting/simulator.py": "41f9ff41c24238122d460e56d78504082686934fb1bba25ea233a0dce0ba2415"
+  },
+  "script_sha256": "e43ca395d193f1e3dfab274f97df5e5080d617b65ebee48238b0f37ca37882f3",
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "feature_names": [
+    "return_1h",
+    "return_6h",
+    "return_1d",
+    "return_3d",
+    "sma_12h_2d",
+    "daily_volatility",
+    "distance_4d_mean"
+  ],
+  "protocol": "Fit earlier development data only, purge horizon, one-day availability buffer, evaluate next month. No validation/test access."
+}

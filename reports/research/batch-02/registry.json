@@ -1,0 +1,100 @@
+{
+  "created_at": "2026-10-01T08:54:01.696327+00:00",
+  "candidates": [
+    {
+      "name": "breakout_12h",
+      "changes": {
+        "strategy": "breakout",
+        "fast_window": 144,
+        "slow_window": 576,
+        "signal_threshold": 0
+      },
+      "hypothesis": "Buy new 12-hour highs, exit 6-hour lows; fewer SMA crossing assumptions"
+    },
+    {
+      "name": "breakout_1d",
+      "changes": {
+        "strategy": "breakout",
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0
+      },
+      "hypothesis": "Daily breakout, half-day exit"
+    },
+    {
+      "name": "breakout_1d_001",
+      "changes": {
+        "strategy": "breakout",
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.001
+      },
+      "hypothesis": "Nearby daily breakout entry buffer"
+    },
+    {
+      "name": "breakout_2d",
+      "changes": {
+        "strategy": "breakout",
+        "fast_window": 576,
+        "slow_window": 2304,
+        "signal_threshold": 0
+      },
+      "hypothesis": "Two-day breakout, one-day exit"
+    },
+    {
+      "name": "trend_12h_2d_vol01",
+      "changes": {
+        "fast_window": 144,
+        "slow_window": 576,
+        "signal_threshold": 0.006,
+        "volatility_target": 0.01
+      },
+      "hypothesis": "Reduce allocation when realized daily volatility exceeds 1%"
+    },
+    {
+      "name": "trend_1d_4d_vol01",
+      "changes": {
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.006,
+        "volatility_target": 0.01
+      },
+      "hypothesis": "Daily trend with conservative volatility sizing"
+    },
+    {
+      "name": "trend_1d_4d_vol02",
+      "changes": {
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.006,
+        "volatility_target": 0.02
+      },
+      "hypothesis": "Nearby volatility target: 2%"
+    },
+    {
+      "name": "breakout_1d_vol01",
+      "changes": {
+        "strategy": "breakout",
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0,
+        "volatility_target": 0.01
+      },
+      "hypothesis": "Daily breakout with reduced high-volatility exposure"
+    }
+  ],
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "code_sha256": {
+    "config.py": "ba9286376d242e8d4318636d43d83a87e5495c417592383ab8b252dcc39490d7",
+    "strategy.py": "4a39ae5067e4878f263728b757da4fdb37e587a35e7b1bd0de559f30e550b901",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "aa73008edfe7d0134211f9b6b097d2e939c1407457d006670e48b6850ec2699b",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+    "backtesting/simulator.py": "41f9ff41c24238122d460e56d78504082686934fb1bba25ea233a0dce0ba2415"
+  },
+  "research_script_sha256": "180f8374fbb6f97961a1fa4274613d1fc8e27ea8eab35730dd741c1b94b1380d",
+  "protocol": "Development only. Monthly and 14-day resets. Chronological parameter selection uses earlier monthly results only. Test remains absent."
+}

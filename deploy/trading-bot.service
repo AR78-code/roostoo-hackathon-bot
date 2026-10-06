@@ -1,0 +1,27 @@
+[Unit]
+Description=Roostoo autonomous trading bot
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/roostoo-bot
+Environment=PYTHONPATH=/opt/roostoo-bot/src
+EnvironmentFile=/opt/roostoo-bot/.env
+# Starts in paper mode. Change to live only after validation and schedule confirmation.
+ExecStart=/usr/bin/python3 -m trading_bot.main run --mode paper --state-dir /opt/roostoo-bot/state/paper
+Restart=on-failure
+RestartSec=30
+TimeoutStopSec=75
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/roostoo-bot/state
+
+[Install]
+WantedBy=multi-user.target

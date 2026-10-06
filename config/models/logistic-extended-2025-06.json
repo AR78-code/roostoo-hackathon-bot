@@ -1,0 +1,58 @@
+{
+  "mean": [
+    4.1651232833202417e-05,
+    0.00025125455658207645,
+    0.0010633408361377112,
+    0.003048280202411297,
+    0.0008603862157994282,
+    0.029057421466982314,
+    0.002393056294722535
+  ],
+  "scale": [
+    0.006526990771118432,
+    0.015992936953140694,
+    0.03196282610999679,
+    0.055022209276483526,
+    0.019130212955973704,
+    0.013915554994624274,
+    0.03647903222165306
+  ],
+  "coefficients": [
+    -0.012211516339719411,
+    -0.06714776656050812,
+    -0.1676942136714302,
+    0.006774218609135672,
+    0.042504480646218874,
+    0.14552740704276534,
+    0.05495874798039936
+  ],
+  "intercept": -0.23578734151699748,
+  "training_rows": 294334,
+  "positive_label_fraction": 0.441573178769697,
+  "training_logloss": 0.6800664472998419,
+  "constant_prior_logloss": 0.686304170452759,
+  "fit_settings": {
+    "iterations": 300,
+    "learning_rate": 0.1,
+    "l2_penalty": 0.01
+  },
+  "model_type": "logistic",
+  "feature_names": [
+    "return_1h",
+    "return_6h",
+    "return_1d",
+    "return_3d",
+    "sma_12h_2d",
+    "daily_volatility",
+    "distance_4d_mean"
+  ],
+  "interval_seconds": 300,
+  "available_at": 1748649600,
+  "last_label_timestamp": 1748649300,
+  "evaluation_start": 1748736000,
+  "data_sha256": {
+    "data/earlier-training/training.csv": "7b9702f3225554506bf9a1f6133d77cd6e2ef341f857de875c4c3b040d063f45",
+    "data/historical/development.csv": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde"
+  },
+  "label_horizon_bars": 288
+}

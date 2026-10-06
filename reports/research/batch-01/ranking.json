@@ -1,0 +1,93 @@
+[
+  {
+    "name": "trend_3h_12h",
+    "monthly_median_score": -0.21780246905494982,
+    "return": -0.04833260231553871,
+    "positive_months": 3,
+    "stress_return": -0.06681978188528603
+  },
+  {
+    "name": "threshold_010",
+    "monthly_median_score": -0.6092982786686325,
+    "return": -0.08581472706986937,
+    "positive_months": 3,
+    "stress_return": -0.08939296166829036
+  },
+  {
+    "name": "trend_6h_1d",
+    "monthly_median_score": -2.7328112366415183,
+    "return": -0.06816946072435093,
+    "positive_months": 2,
+    "stress_return": -0.07101020550945814
+  },
+  {
+    "name": "trend_12h_2d_band04",
+    "monthly_median_score": -2.7395590764474775,
+    "return": -0.06568817071946209,
+    "positive_months": 1,
+    "stress_return": -0.07753843116067682
+  },
+  {
+    "name": "trend_12h_2d",
+    "monthly_median_score": -2.955314599438947,
+    "return": -0.07773758253048324,
+    "positive_months": 1,
+    "stress_return": -0.07576989813705859
+  },
+  {
+    "name": "threshold_006",
+    "monthly_median_score": -3.313475016849755,
+    "return": -0.08057825045733069,
+    "positive_months": 2,
+    "stress_return": -0.07603281859794386
+  },
+  {
+    "name": "trend_2d_8d",
+    "monthly_median_score": -3.707823091500759,
+    "return": -0.07555767065269337,
+    "positive_months": 2,
+    "stress_return": -0.08093329544982963
+  },
+  {
+    "name": "trend_1d_4d_band04",
+    "monthly_median_score": -4.010195121475272,
+    "return": -0.08061596853165409,
+    "positive_months": 2,
+    "stress_return": -0.09093182325609961
+  },
+  {
+    "name": "trend_2d_8d_010",
+    "monthly_median_score": -4.077951265467718,
+    "return": -0.07695998963713613,
+    "positive_months": 2,
+    "stress_return": -0.08086451206858969
+  },
+  {
+    "name": "trend_1d_4d_010",
+    "monthly_median_score": -4.08049067723125,
+    "return": -0.10741321183876251,
+    "positive_months": 2,
+    "stress_return": -0.11738029045158271
+  },
+  {
+    "name": "trend_1d_4d",
+    "monthly_median_score": -4.1337783254354585,
+    "return": -0.08445403306140675,
+    "positive_months": 2,
+    "stress_return": -0.08782149868247857
+  },
+  {
+    "name": "baseline",
+    "monthly_median_score": -4.335546907507557,
+    "return": -0.08298462072389534,
+    "positive_months": 1,
+    "stress_return": -0.09104130442121372
+  },
+  {
+    "name": "trend_1d_4d_003",
+    "monthly_median_score": -4.621234499353724,
+    "return": -0.08480884842000624,
+    "positive_months": 2,
+    "stress_return": -0.09431142885327326
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "development": {
+    "total_trades": 2382,
+    "active_days": 57,
+    "same_pair_side_reversals": 308,
+    "total_notional": 4758895.5554971695,
+    "commission_fees": 4758.895555497177,
+    "execution_cashflow_before_commissions": -3539.5665168920436,
+    "net_execution_cashflow": -8298.46207238922,
+    "median_fifo_lot_holding_hours": 7.0,
+    "notional_weighted_fifo_holding_hours": 12.201966420289963,
+    "lots_closed_within_4_hours_fraction": 0.25925925925925924,
+    "note": "Gross execution cashflow includes modeled spread and slippage, excludes commissions, and holds actual recorded trades fixed. This is an accounting decomposition, not a counterfactual no-cost backtest."
+  },
+  "validation": {
+    "total_trades": 3103,
+    "active_days": 86,
+    "same_pair_side_reversals": 394,
+    "total_notional": 6203756.377530723,
+    "commission_fees": 6203.756377530708,
+    "execution_cashflow_before_commissions": 25.091524384738932,
+    "net_execution_cashflow": -6178.664853145969,
+    "median_fifo_lot_holding_hours": 9.333333333333334,
+    "notional_weighted_fifo_holding_hours": 14.322296498335144,
+    "lots_closed_within_4_hours_fraction": 0.1947758787487907,
+    "note": "Gross execution cashflow includes modeled spread and slippage, excludes commissions, and holds actual recorded trades fixed. This is an accounting decomposition, not a counterfactual no-cost backtest."
+  }
+}

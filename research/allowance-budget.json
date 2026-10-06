@@ -1,0 +1,11 @@
+{
+  "user_amendment": "Use half of the full five-hour allowance",
+  "observed_at_utc": "2026-10-01 09:52:36 UTC",
+  "starting_used_percent": 46,
+  "remaining_percent_at_amendment": 56,
+  "authorized_additional_percent_ceiling": 4,
+  "total_used_percent_ceiling": 50,
+  "stop_new_experiments_at_used_percent": 46,
+  "current_window_resets_at": 1790849351,
+  "note": "Latest user amendment supersedes the72%ceiling. Finish currently running batch07 and verification/handoff; no additional experiments. Rounded account-wide usage means other chats can consume this room."
+}

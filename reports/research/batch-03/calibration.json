@@ -1,0 +1,230 @@
+{
+  "note": "Overlapping 24-hour labels are correlated; row counts are not independent observations. These calibration results are development diagnostics, not proof of profitable trading. All model parameters and priors were fit before their forward month.",
+  "development_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "months": [
+    {
+      "month": "2025-03",
+      "model_sha256": "86391e650ef80b99adc607113f8612271f7c25182204e396c4a48f5ec2402e8a",
+      "model": {
+        "logloss": 0.6739468636143252,
+        "brier": 0.2403770871998029,
+        "mean_prediction": 0.40545642626183587,
+        "positive_fraction": 0.3772427364278273,
+        "rows": 17278
+      },
+      "earlier_training_prior": {
+        "logloss": 0.6639471790029723,
+        "brier": 0.23552673996732015,
+        "mean_prediction": 0.4016576033545175,
+        "positive_fraction": 0.3772427364278273,
+        "rows": 17278
+      },
+      "buckets": [
+        {
+          "lower": 0,
+          "upper": 0.4,
+          "logloss": 0.6664494921382145,
+          "brier": 0.2366166187052499,
+          "mean_prediction": 0.34351445291779226,
+          "positive_fraction": 0.3742994395516413,
+          "rows": 9992
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "logloss": 0.6707939740453852,
+          "brier": 0.2388791446746897,
+          "mean_prediction": 0.4391495411249249,
+          "positive_fraction": 0.3604908469120901,
+          "rows": 4971
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "logloss": 0.7236770241792341,
+          "brier": 0.2651503291674463,
+          "mean_prediction": 0.5445668729910115,
+          "positive_fraction": 0.356353591160221,
+          "rows": 1448
+        },
+        {
+          "lower": 0.6,
+          "upper": 1.000001,
+          "logloss": 0.6953741731166432,
+          "brier": 0.25092981974970435,
+          "mean_prediction": 0.6938114398782397,
+          "positive_fraction": 0.5420991926182238,
+          "rows": 867
+        }
+      ]
+    },
+    {
+      "month": "2025-04",
+      "model_sha256": "c1db75cc5f551ce8d747bfe9f8c243fd637bbbcb683c56f0672547cab79947e5",
+      "model": {
+        "logloss": 0.685860441111383,
+        "brier": 0.24624810099097136,
+        "mean_prediction": 0.3751364462235882,
+        "positive_fraction": 0.46024428212190155,
+        "rows": 16702
+      },
+      "earlier_training_prior": {
+        "logloss": 0.6991302975184941,
+        "brier": 0.2528586161835794,
+        "mean_prediction": 0.3936174610392295,
+        "positive_fraction": 0.46024428212190155,
+        "rows": 16702
+      },
+      "buckets": [
+        {
+          "lower": 0,
+          "upper": 0.4,
+          "logloss": 0.6824121788917491,
+          "brier": 0.24444032143720348,
+          "mean_prediction": 0.3431645821425119,
+          "positive_fraction": 0.41065781151170144,
+          "rows": 12648
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "logloss": 0.7157178789605116,
+          "brier": 0.2612097275152708,
+          "mean_prediction": 0.4349198510360177,
+          "positive_fraction": 0.5880794701986755,
+          "rows": 3020
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "logloss": 0.6575850759270085,
+          "brier": 0.23231856690706593,
+          "mean_prediction": 0.5386231417702136,
+          "positive_fraction": 0.6857142857142857,
+          "rows": 665
+        },
+        {
+          "lower": 0.6,
+          "upper": 1.000001,
+          "logloss": 0.6106498072283731,
+          "brier": 0.2108655098215116,
+          "mean_prediction": 0.6871028468344585,
+          "positive_fraction": 0.7073170731707317,
+          "rows": 369
+        }
+      ]
+    },
+    {
+      "month": "2025-05",
+      "model_sha256": "8f0ae5430d293dbbd37f368d1900dba302105b07411a633bbd07e994188c692d",
+      "model": {
+        "logloss": 0.7141205208623177,
+        "brier": 0.2569661265178811,
+        "mean_prediction": 0.39423884279425114,
+        "positive_fraction": 0.43731913415904616,
+        "rows": 17278
+      },
+      "earlier_training_prior": {
+        "logloss": 0.6860542383242414,
+        "brier": 0.24645483563304507,
+        "mean_prediction": 0.41773019402394074,
+        "positive_fraction": 0.43731913415904616,
+        "rows": 17278
+      },
+      "buckets": [
+        {
+          "lower": 0,
+          "upper": 0.4,
+          "logloss": 0.7534728221501612,
+          "brier": 0.272891033957727,
+          "mean_prediction": 0.34499695922173496,
+          "positive_fraction": 0.46280697591647885,
+          "rows": 8429
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "logloss": 0.6750936233032981,
+          "brier": 0.24103016438183594,
+          "mean_prediction": 0.4330190469463715,
+          "positive_fraction": 0.4042368681863231,
+          "rows": 8072
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "logloss": 0.6928975094430676,
+          "brier": 0.2498816990807758,
+          "mean_prediction": 0.5254481436872189,
+          "positive_fraction": 0.5038659793814433,
+          "rows": 776
+        },
+        {
+          "lower": 0.6,
+          "upper": 1.000001,
+          "logloss": 0.5077469233730045,
+          "brier": 0.15852336940671294,
+          "mean_prediction": 0.6018500666749862,
+          "positive_fraction": 1.0,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "month": "2025-06",
+      "model_sha256": "3f0755f02c8946ede5f55e63ad6acd08a5b51131670a4d10ef9628b7da9808c5",
+      "model": {
+        "logloss": 0.6968144910816407,
+        "brier": 0.25136750471802044,
+        "mean_prediction": 0.41069056506997204,
+        "positive_fraction": 0.4104298886360915,
+        "rows": 16702
+      },
+      "earlier_training_prior": {
+        "logloss": 0.6774003500102977,
+        "brier": 0.24216505577414105,
+        "mean_prediction": 0.42413611437055476,
+        "positive_fraction": 0.4104298886360915,
+        "rows": 16702
+      },
+      "buckets": [
+        {
+          "lower": 0,
+          "upper": 0.4,
+          "logloss": 0.7379709253284706,
+          "brier": 0.2713011322998182,
+          "mean_prediction": 0.37161703307988586,
+          "positive_fraction": 0.5049881235154394,
+          "rows": 8420
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "logloss": 0.6498732256960891,
+          "brier": 0.22849971190720214,
+          "mean_prediction": 0.4318439483278455,
+          "positive_fraction": 0.29878565377012145,
+          "rows": 7082
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "logloss": 0.7270874385822496,
+          "brier": 0.2669095869981405,
+          "mean_prediction": 0.5376694822601747,
+          "positive_fraction": 0.2904255319148936,
+          "rows": 940
+        },
+        {
+          "lower": 0.6,
+          "upper": 1.000001,
+          "logloss": 0.5331387005108693,
+          "brier": 0.17251753204173403,
+          "mean_prediction": 0.6408086303217987,
+          "positive_fraction": 0.823076923076923,
+          "rows": 260
+        }
+      ]
+    }
+  ]
+}

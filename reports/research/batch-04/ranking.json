@@ -1,0 +1,44 @@
+[
+  {
+    "name": "pullback_1d_8d_020",
+    "monthly_median_score": -2.2705431425941915,
+    "return": -0.020714684047040022,
+    "positive_months": 3,
+    "stress_return": -0.0410523136199894
+  },
+  {
+    "name": "pullback_12h_4d_020",
+    "monthly_median_score": -4.734209418872847,
+    "return": -0.05058720299169084,
+    "positive_months": 0,
+    "stress_return": -0.07285390837434946
+  },
+  {
+    "name": "pullback_12h_4d_010_vol01",
+    "monthly_median_score": -6.073766676394519,
+    "return": -0.03460457295806996,
+    "positive_months": 0,
+    "stress_return": -0.05618769601997997
+  },
+  {
+    "name": "pullback_12h_4d_010",
+    "monthly_median_score": -6.856046548921233,
+    "return": -0.09448409562831672,
+    "positive_months": 0,
+    "stress_return": -0.09672373148942237
+  },
+  {
+    "name": "pullback_6h_2d_010",
+    "monthly_median_score": -6.882295953783664,
+    "return": -0.08686211326463333,
+    "positive_months": 0,
+    "stress_return": -0.09672034864439683
+  },
+  {
+    "name": "pullback_6h_2d_005",
+    "monthly_median_score": -8.122863753953236,
+    "return": -0.09367095069872633,
+    "positive_months": 0,
+    "stress_return": -0.10176147442102501
+  }
+]

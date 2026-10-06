@@ -1,0 +1,180 @@
+{
+  "cohorts": [
+    {
+      "batch": "batch-01",
+      "archived_source_modules_verified": 9,
+      "dataset_checksums_verified": [
+        "data/historical/development.csv"
+      ]
+    },
+    {
+      "batch": "batch-02",
+      "archived_source_modules_verified": 9,
+      "dataset_checksums_verified": [
+        "data/historical/development.csv"
+      ]
+    },
+    {
+      "batch": "batch-03",
+      "archived_source_modules_verified": 10,
+      "dataset_checksums_verified": [
+        "data/historical/development.csv"
+      ]
+    },
+    {
+      "batch": "batch-04",
+      "archived_source_modules_verified": 10,
+      "dataset_checksums_verified": [
+        "data/historical/development.csv"
+      ]
+    },
+    {
+      "batch": "batch-05",
+      "archived_source_modules_verified": 10,
+      "dataset_checksums_verified": [
+        "data/historical/development.csv"
+      ]
+    },
+    {
+      "batch": "batch-06",
+      "archived_source_modules_verified": 10,
+      "dataset_checksums_verified": [
+        "data/historical/development.csv"
+      ]
+    },
+    {
+      "batch": "batch-07",
+      "archived_source_modules_verified": 17,
+      "dataset_checksums_verified": [
+        "data/earlier-training/training.csv",
+        "data/historical/development.csv"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "path": "config/models/logistic-2025-03.json",
+      "sha256": "86391e650ef80b99adc607113f8612271f7c25182204e396c4a48f5ec2402e8a",
+      "available_at": 1740700800,
+      "evaluation_start": 1740787200
+    },
+    {
+      "path": "config/models/logistic-2025-04.json",
+      "sha256": "c1db75cc5f551ce8d747bfe9f8c243fd637bbbcb683c56f0672547cab79947e5",
+      "available_at": 1743379200,
+      "evaluation_start": 1743465600
+    },
+    {
+      "path": "config/models/logistic-2025-05.json",
+      "sha256": "8f0ae5430d293dbbd37f368d1900dba302105b07411a633bbd07e994188c692d",
+      "available_at": 1745971200,
+      "evaluation_start": 1746057600
+    },
+    {
+      "path": "config/models/logistic-2025-06.json",
+      "sha256": "3f0755f02c8946ede5f55e63ad6acd08a5b51131670a4d10ef9628b7da9808c5",
+      "available_at": 1748649600,
+      "evaluation_start": 1748736000
+    },
+    {
+      "path": "config/models/logistic-extended-2025-01.json",
+      "sha256": "939f02be38809ebf5a808ca2acec28e38de07a77455caf15ef8502e082cd76d4",
+      "available_at": 1735603200,
+      "evaluation_start": 1735689600
+    },
+    {
+      "path": "config/models/logistic-extended-2025-02.json",
+      "sha256": "8fc3b63a597624d87e96749b27ae83f85671a8d1c1d113bbc8402c0ee87cc8e2",
+      "available_at": 1738281600,
+      "evaluation_start": 1738368000
+    },
+    {
+      "path": "config/models/logistic-extended-2025-03.json",
+      "sha256": "ecd7c64e1159d684aa1a2337c1a1c44d5dc4153f4fa6f1f4e1562a65f4e21380",
+      "available_at": 1740700800,
+      "evaluation_start": 1740787200
+    },
+    {
+      "path": "config/models/logistic-extended-2025-04.json",
+      "sha256": "0c5d58bd2b5f76cf98cde46b88e8f4dfb9053964256bb313f599f5252fd290a8",
+      "available_at": 1743379200,
+      "evaluation_start": 1743465600
+    },
+    {
+      "path": "config/models/logistic-extended-2025-05.json",
+      "sha256": "b97c1c3dbb4b7275684e4dea26d82c68fa72cb4af42df31863622d3942f62a67",
+      "available_at": 1745971200,
+      "evaluation_start": 1746057600
+    },
+    {
+      "path": "config/models/logistic-extended-2025-06.json",
+      "sha256": "d82fb784f75b9572a1bcebf05ab010bdc52b8d11236bd6a8503d5e69fcec8c45",
+      "available_at": 1748649600,
+      "evaluation_start": 1748736000
+    },
+    {
+      "path": "config/models/ridge-2025-03.json",
+      "sha256": "9c0b0988701aa2e7144f9a2a6b0fce51d01bf3c84faa5ced9311efdfb75230aa",
+      "available_at": 1740700800,
+      "evaluation_start": 1740787200
+    },
+    {
+      "path": "config/models/ridge-2025-04.json",
+      "sha256": "a8c4bda30ceb129333d2f68c93b9f7032392447d3b70e12c56ebef3ed9b95e36",
+      "available_at": 1743379200,
+      "evaluation_start": 1743465600
+    },
+    {
+      "path": "config/models/ridge-2025-05.json",
+      "sha256": "559ada28ebdcf368826c82acc5ff519583f6cdd743cfbad3e85029918e401bd0",
+      "available_at": 1745971200,
+      "evaluation_start": 1746057600
+    },
+    {
+      "path": "config/models/ridge-2025-06.json",
+      "sha256": "38c7a270b788da5d2190f5e256e74bc3c77305a43d2467ca631104598caacc21",
+      "available_at": 1748649600,
+      "evaluation_start": 1748736000
+    },
+    {
+      "path": "config/models/ridge-extended-2025-01.json",
+      "sha256": "0dbe2a8569a532c2f6773275cc043b3f0b5e549211586c1e201fb89b924c8f2f",
+      "available_at": 1735603200,
+      "evaluation_start": 1735689600
+    },
+    {
+      "path": "config/models/ridge-extended-2025-02.json",
+      "sha256": "7d841ce5930a5d7e3f105be3b52bc1d3c39821dd29de8d8109595987f3f706de",
+      "available_at": 1738281600,
+      "evaluation_start": 1738368000
+    },
+    {
+      "path": "config/models/ridge-extended-2025-03.json",
+      "sha256": "18ae6ada56598f1c36dfd2b4b8cda773d1e49bb1d1e3fa01794d26191ac92612",
+      "available_at": 1740700800,
+      "evaluation_start": 1740787200
+    },
+    {
+      "path": "config/models/ridge-extended-2025-04.json",
+      "sha256": "4edfc03a7b258e4c8646aa18399737c171093c2be177d2ce7b39b49e8cb7ec23",
+      "available_at": 1743379200,
+      "evaluation_start": 1743465600
+    },
+    {
+      "path": "config/models/ridge-extended-2025-05.json",
+      "sha256": "a1b9cf5b7f5a27d3e2c0b2a1c13c6c09b2170d3e3c6c62854980ef5b79366294",
+      "available_at": 1745971200,
+      "evaluation_start": 1746057600
+    },
+    {
+      "path": "config/models/ridge-extended-2025-06.json",
+      "sha256": "8b42d2dbe4689398aa04420786457b77f4f6c8cdadfa277fdae96dbb464a7ccf",
+      "available_at": 1748649600,
+      "evaluation_start": 1748736000
+    }
+  ],
+  "real_test_csv_present": false,
+  "real_test_access_marker_present": false,
+  "original_bot_config_unchanged": true,
+  "note": "Verifies saved source/data/model checksums and chronology. Tests establish runtime behavior separately. No price rows or validation/test files opened."
+}

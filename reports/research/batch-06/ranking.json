@@ -1,0 +1,44 @@
+[
+  {
+    "name": "rotation_4d_8d",
+    "monthly_median_score": -6.118109886112954,
+    "return": -0.0753058844405331,
+    "positive_months": 1,
+    "stress_return": -0.0869553347525529
+  },
+  {
+    "name": "rotation_2d_8d",
+    "monthly_median_score": -6.764258528039022,
+    "return": -0.08762433480596632,
+    "positive_months": 1,
+    "stress_return": -0.08894096470728519
+  },
+  {
+    "name": "rotation_2d_8d_vol01",
+    "monthly_median_score": -7.121090854052321,
+    "return": -0.09218013053488061,
+    "positive_months": 1,
+    "stress_return": -0.09110076708616999
+  },
+  {
+    "name": "rotation_1d_4d",
+    "monthly_median_score": -7.36178290776302,
+    "return": -0.09747709131753657,
+    "positive_months": 1,
+    "stress_return": -0.0992656253214732
+  },
+  {
+    "name": "rotation_1d_8d",
+    "monthly_median_score": -7.511194345787639,
+    "return": -0.09050173923334881,
+    "positive_months": 1,
+    "stress_return": -0.09070785517142876
+  },
+  {
+    "name": "rotation_1d_4d_vol01",
+    "monthly_median_score": -8.02784660578599,
+    "return": -0.099841947665406,
+    "positive_months": 1,
+    "stress_return": -0.09825661176966127
+  }
+]

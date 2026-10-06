@@ -1,0 +1,130 @@
+{
+  "created_at": "2026-10-01T08:48:24.869135+00:00",
+  "candidates": [
+    {
+      "name": "baseline",
+      "changes": {},
+      "hypothesis": "Reference: original one-hour/four-hour SMA"
+    },
+    {
+      "name": "threshold_006",
+      "changes": {
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Require stronger evidence before switching position"
+    },
+    {
+      "name": "threshold_010",
+      "changes": {
+        "signal_threshold": 0.01
+      },
+      "hypothesis": "Stronger hysteresis reduces short-term reversals"
+    },
+    {
+      "name": "trend_3h_12h",
+      "changes": {
+        "fast_window": 36,
+        "slow_window": 144,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Slower signal reduces turnover"
+    },
+    {
+      "name": "trend_6h_1d",
+      "changes": {
+        "fast_window": 72,
+        "slow_window": 288,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Follow intraday-to-daily trends"
+    },
+    {
+      "name": "trend_12h_2d",
+      "changes": {
+        "fast_window": 144,
+        "slow_window": 576,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Follow multi-day trends"
+    },
+    {
+      "name": "trend_1d_4d",
+      "changes": {
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Daily/multi-day trend regime"
+    },
+    {
+      "name": "trend_1d_4d_003",
+      "changes": {
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.003
+      },
+      "hypothesis": "Nearby sensitivity check: earlier entry/exit"
+    },
+    {
+      "name": "trend_1d_4d_010",
+      "changes": {
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.01
+      },
+      "hypothesis": "Nearby sensitivity check: less switching"
+    },
+    {
+      "name": "trend_2d_8d",
+      "changes": {
+        "fast_window": 576,
+        "slow_window": 2304,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Longer trend filter"
+    },
+    {
+      "name": "trend_2d_8d_010",
+      "changes": {
+        "fast_window": 576,
+        "slow_window": 2304,
+        "signal_threshold": 0.01
+      },
+      "hypothesis": "Nearby slower-trend threshold"
+    },
+    {
+      "name": "trend_12h_2d_band04",
+      "changes": {
+        "fast_window": 144,
+        "slow_window": 576,
+        "signal_threshold": 0.006,
+        "rebalance_band": 0.04
+      },
+      "hypothesis": "Reduce incidental rebalancing"
+    },
+    {
+      "name": "trend_1d_4d_band04",
+      "changes": {
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.006,
+        "rebalance_band": 0.04
+      },
+      "hypothesis": "Reduce turnover around daily trend"
+    }
+  ],
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "code_sha256": {
+    "config.py": "3afd489c5e315743cc406fd6de3dba490c81368ca37f0125829e260578d2d075",
+    "strategy.py": "a8413e544ee79be417590f6ad13dcac844cea20599177da399d326dbd7cb13b2",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "aa73008edfe7d0134211f9b6b097d2e939c1407457d006670e48b6850ec2699b",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+    "backtesting/simulator.py": "41f9ff41c24238122d460e56d78504082686934fb1bba25ea233a0dce0ba2415"
+  },
+  "research_script_sha256": "180f8374fbb6f97961a1fa4274613d1fc8e27ea8eab35730dd741c1b94b1380d",
+  "protocol": "Development only. Monthly and 14-day resets. Chronological parameter selection uses earlier monthly results only. Test remains absent."
+}

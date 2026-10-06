@@ -1,0 +1,58 @@
+[
+  {
+    "name": "trend_12h_2d_vol01",
+    "monthly_median_score": -1.4876492417720968,
+    "return": -0.02472606557843615,
+    "positive_months": 1,
+    "stress_return": -0.044606642937515706
+  },
+  {
+    "name": "breakout_2d",
+    "monthly_median_score": -2.822057460049592,
+    "return": -0.0834978477727294,
+    "positive_months": 1,
+    "stress_return": -0.07576238581128125
+  },
+  {
+    "name": "trend_1d_4d_vol01",
+    "monthly_median_score": -3.183558341105379,
+    "return": -0.03065670728671499,
+    "positive_months": 2,
+    "stress_return": -0.045994244696872744
+  },
+  {
+    "name": "trend_1d_4d_vol02",
+    "monthly_median_score": -3.359194052129997,
+    "return": -0.08469075299439266,
+    "positive_months": 2,
+    "stress_return": -0.0872518670918746
+  },
+  {
+    "name": "breakout_1d",
+    "monthly_median_score": -4.4683409189811965,
+    "return": -0.08957194092886633,
+    "positive_months": 1,
+    "stress_return": -0.09673755399791628
+  },
+  {
+    "name": "breakout_1d_001",
+    "monthly_median_score": -4.524373777112115,
+    "return": -0.08738364626006934,
+    "positive_months": 1,
+    "stress_return": -0.09121848136218147
+  },
+  {
+    "name": "breakout_12h",
+    "monthly_median_score": -4.589689722966336,
+    "return": -0.08781194195625097,
+    "positive_months": 1,
+    "stress_return": -0.08799976585245006
+  },
+  {
+    "name": "breakout_1d_vol01",
+    "monthly_median_score": -4.865643247927884,
+    "return": -0.05134902961643051,
+    "positive_months": 2,
+    "stress_return": -0.09118866457354713
+  }
+]

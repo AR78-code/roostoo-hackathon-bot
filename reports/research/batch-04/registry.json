@@ -1,0 +1,81 @@
+{
+  "created_at": "2026-10-01T09:13:33.099416+00:00",
+  "candidates": [
+    {
+      "name": "pullback_6h_2d_005",
+      "changes": {
+        "strategy": "pullback",
+        "fast_window": 72,
+        "slow_window": 576,
+        "signal_threshold": 0.005
+      },
+      "hypothesis": "Half-percent dip below six-hour mean, positive two-day trend"
+    },
+    {
+      "name": "pullback_6h_2d_010",
+      "changes": {
+        "strategy": "pullback",
+        "fast_window": 72,
+        "slow_window": 576,
+        "signal_threshold": 0.01
+      },
+      "hypothesis": "One-percent dip reduces shallow entries"
+    },
+    {
+      "name": "pullback_12h_4d_010",
+      "changes": {
+        "strategy": "pullback",
+        "fast_window": 144,
+        "slow_window": 1152,
+        "signal_threshold": 0.01
+      },
+      "hypothesis": "Slower mean and longer trend filter"
+    },
+    {
+      "name": "pullback_12h_4d_020",
+      "changes": {
+        "strategy": "pullback",
+        "fast_window": 144,
+        "slow_window": 1152,
+        "signal_threshold": 0.02
+      },
+      "hypothesis": "Two-percent dip requires a larger recovery margin over costs"
+    },
+    {
+      "name": "pullback_12h_4d_010_vol01",
+      "changes": {
+        "strategy": "pullback",
+        "fast_window": 144,
+        "slow_window": 1152,
+        "signal_threshold": 0.01,
+        "volatility_target": 0.01
+      },
+      "hypothesis": "Reduce exposure during volatile dips"
+    },
+    {
+      "name": "pullback_1d_8d_020",
+      "changes": {
+        "strategy": "pullback",
+        "fast_window": 288,
+        "slow_window": 2304,
+        "signal_threshold": 0.02
+      },
+      "hypothesis": "Daily mean with eight-day trend gate"
+    }
+  ],
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "code_sha256": {
+    "config.py": "5ce07574943b3310fa5e133ad5fc7307321b399c796523c29d043e42d0f740bc",
+    "strategy.py": "9909575b8786fd6c4fd6906741c4e21f478917287af46e240054a7214da6dcab",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "ml.py": "eb3f8f8047afe493c17c3f86b2fbaba951ca16b864e7663920733ac7ab6828d3",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "efd2c4a71b86ec9376c3b4c0aadc1830ebcdb0700ad41a9e694573b335a92f0a",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+    "backtesting/simulator.py": "41f9ff41c24238122d460e56d78504082686934fb1bba25ea233a0dce0ba2415"
+  },
+  "research_script_sha256": "180f8374fbb6f97961a1fa4274613d1fc8e27ea8eab35730dd741c1b94b1380d",
+  "protocol": "Development only. Monthly and 14-day resets. Chronological parameter selection uses earlier monthly results only. Test remains absent."
+}

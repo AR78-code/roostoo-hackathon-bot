@@ -1,0 +1,23 @@
+{
+  "candidates": [
+    "baseline",
+    "trend_3h_12h",
+    "trend_12h_2d_vol01"
+  ],
+  "diagnostic_drawdown_limit": 0.99,
+  "hypothesis": "Determine whether irreversible buy halts explain negative continuous-development performance. A 99% halt is diagnostic, not an acceptable deployment policy.",
+  "code_sha256": {
+    "config.py": "5ce07574943b3310fa5e133ad5fc7307321b399c796523c29d043e42d0f740bc",
+    "strategy.py": "9909575b8786fd6c4fd6906741c4e21f478917287af46e240054a7214da6dcab",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "ml.py": "eb3f8f8047afe493c17c3f86b2fbaba951ca16b864e7663920733ac7ab6828d3",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "efd2c4a71b86ec9376c3b4c0aadc1830ebcdb0700ad41a9e694573b335a92f0a",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+    "backtesting/simulator.py": "41f9ff41c24238122d460e56d78504082686934fb1bba25ea233a0dce0ba2415"
+  },
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "script_sha256": "b9dda02b64dbdaea97cf6fb7fc7217adf10fd6e697d0ed99699696510ef8176f"
+}

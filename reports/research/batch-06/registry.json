@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-10-01T09:31:37.934631+00:00",
+  "candidates": [
+    {
+      "name": "rotation_1d_4d",
+      "changes": {
+        "strategy": "rotation",
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Daily relative strength within a four-day positive trend"
+    },
+    {
+      "name": "rotation_1d_8d",
+      "changes": {
+        "strategy": "rotation",
+        "fast_window": 288,
+        "slow_window": 2304,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Daily relative strength with a longer trend filter"
+    },
+    {
+      "name": "rotation_2d_8d",
+      "changes": {
+        "strategy": "rotation",
+        "fast_window": 576,
+        "slow_window": 2304,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Two-day relative strength reduces short-horizon ranking changes"
+    },
+    {
+      "name": "rotation_4d_8d",
+      "changes": {
+        "strategy": "rotation",
+        "fast_window": 1152,
+        "slow_window": 2304,
+        "signal_threshold": 0.006
+      },
+      "hypothesis": "Four-day relative strength, eight-day positive trend"
+    },
+    {
+      "name": "rotation_1d_4d_vol01",
+      "changes": {
+        "strategy": "rotation",
+        "fast_window": 288,
+        "slow_window": 1152,
+        "signal_threshold": 0.006,
+        "volatility_target": 0.01
+      },
+      "hypothesis": "Daily rotation with reduced allocation during high volatility"
+    },
+    {
+      "name": "rotation_2d_8d_vol01",
+      "changes": {
+        "strategy": "rotation",
+        "fast_window": 576,
+        "slow_window": 2304,
+        "signal_threshold": 0.006,
+        "volatility_target": 0.01
+      },
+      "hypothesis": "Slower rotation with conservative volatility sizing"
+    }
+  ],
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "code_sha256": {
+    "config.py": "0d54c3ff1af38f25683ccd46e1d1c00b3d8d35ad9e72974e9e6ee2b56a0b20e6",
+    "strategy.py": "f7029bf954f639b544225cdb66d0f4a463fefd79082e5171bf4d88a0162dfe65",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "ml.py": "2828d6e92ab21dfd6c0de5a10dd62a72ddf3f4ffd2d36d1f0da321a3c4107371",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "c73b61726da43a901318e9b3f5c0a9b03b0ef1565ad2a3a75360f81d045a2259",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "0e40eaae526618e1491abea8375d4de4174baf5e71e7a8a8aa8b5f9a08beedfd",
+    "backtesting/simulator.py": "9b4890906d7fe30fd13d166a0e90dd135f9b4af41c878be67cfe522a0e603e87"
+  },
+  "research_script_sha256": "180f8374fbb6f97961a1fa4274613d1fc8e27ea8eab35730dd741c1b94b1380d",
+  "protocol": "Development only. Monthly and 14-day resets. Chronological parameter selection uses earlier monthly results only. Test remains absent."
+}

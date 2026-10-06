@@ -1,0 +1,17 @@
+# UTC, start-inclusive/end-exclusive periods fixed before inspecting results.
+interval_seconds = 300
+spread_bps = 2.0
+amount_precision = 6
+exchange_min_order = 1.0
+
+[development]
+start = "2025-01-01"
+end = "2025-07-01"
+
+[validation]
+start = "2025-07-01"
+end = "2025-10-01"
+
+[test]
+start = "2025-10-01"
+end = "2026-01-01"

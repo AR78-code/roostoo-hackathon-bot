@@ -1,0 +1,41 @@
+{
+  "note": "Forward outcomes are unclipped. Overlapping labels are correlated, not independent observations.",
+  "months": [
+    {
+      "month": "2025-03",
+      "rows": 17278,
+      "model_sha256": "9c0b0988701aa2e7144f9a2a6b0fce51d01bf3c84faa5ced9311efdfb75230aa",
+      "forward_mse": 0.0015471599273410377,
+      "prior_mean_mse": 0.001505578394523074,
+      "mean_prediction": -0.009133387902863877,
+      "mean_outcome": -0.008064310905748976
+    },
+    {
+      "month": "2025-04",
+      "rows": 16702,
+      "model_sha256": "a8c4bda30ceb129333d2f68c93b9f7032392447d3b70e12c56ebef3ed9b95e36",
+      "forward_mse": 0.0014288931415556915,
+      "prior_mean_mse": 0.0014767811266994059,
+      "mean_prediction": -0.011397309543972252,
+      "mean_outcome": -0.002968523487346281
+    },
+    {
+      "month": "2025-05",
+      "rows": 17278,
+      "model_sha256": "559ada28ebdcf368826c82acc5ff519583f6cdd743cfbad3e85029918e401bd0",
+      "forward_mse": 0.0014965384861011714,
+      "prior_mean_mse": 0.0012530973698417624,
+      "mean_prediction": -0.01001125772218067,
+      "mean_outcome": 0.0025405830207884264
+    },
+    {
+      "month": "2025-06",
+      "rows": 16702,
+      "model_sha256": "38c7a270b788da5d2190f5e256e74bc3c77305a43d2467ca631104598caacc21",
+      "forward_mse": 0.0008188219492675901,
+      "prior_mean_mse": 0.0007757468516927137,
+      "mean_prediction": -0.0052491569707315,
+      "mean_outcome": -0.003897596776366198
+    }
+  ]
+}

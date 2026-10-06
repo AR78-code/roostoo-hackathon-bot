@@ -1,0 +1,125 @@
+{
+  "note": "Correlated overlapping24-hour labels; counts are not independent observations. No validation/test used.",
+  "records": [
+    {
+      "month": "2025-01",
+      "family": "logistic",
+      "rows": 17278,
+      "model_sha256": "939f02be38809ebf5a808ca2acec28e38de07a77455caf15ef8502e082cd76d4",
+      "forward_logloss": 0.6906468278050791,
+      "constant_prior_logloss": 0.6973345684387807,
+      "mean_prediction": 0.45466501437659895,
+      "positive_fraction": 0.49247598101632134
+    },
+    {
+      "month": "2025-01",
+      "family": "ridge",
+      "rows": 17278,
+      "model_sha256": "0dbe2a8569a532c2f6773275cc043b3f0b5e549211586c1e201fb89b924c8f2f",
+      "forward_mse": 0.0008476472412296866,
+      "constant_mean_mse": 0.0008568424707813451,
+      "mean_prediction": -0.0021517901532483227,
+      "mean_outcome": -0.002746783183152036
+    },
+    {
+      "month": "2025-02",
+      "family": "logistic",
+      "rows": 15550,
+      "model_sha256": "8fc3b63a597624d87e96749b27ae83f85671a8d1c1d113bbc8402c0ee87cc8e2",
+      "forward_logloss": 0.6578723099296278,
+      "constant_prior_logloss": 0.6658415471654519,
+      "mean_prediction": 0.4661781253657854,
+      "positive_fraction": 0.3412218649517685
+    },
+    {
+      "month": "2025-02",
+      "family": "ridge",
+      "rows": 15550,
+      "model_sha256": "7d841ce5930a5d7e3f105be3b52bc1d3c39821dd29de8d8109595987f3f706de",
+      "forward_mse": 0.0015654499958680237,
+      "constant_mean_mse": 0.0015821554669943297,
+      "mean_prediction": -0.0023591313166981807,
+      "mean_outcome": -0.015650935042207215
+    },
+    {
+      "month": "2025-03",
+      "family": "logistic",
+      "rows": 17278,
+      "model_sha256": "ecd7c64e1159d684aa1a2337c1a1c44d5dc4153f4fa6f1f4e1562a65f4e21380",
+      "forward_logloss": 0.6793179993366133,
+      "constant_prior_logloss": 0.6714596943561587,
+      "mean_prediction": 0.4599783431311418,
+      "positive_fraction": 0.3772427364278273
+    },
+    {
+      "month": "2025-03",
+      "family": "ridge",
+      "rows": 17278,
+      "model_sha256": "18ae6ada56598f1c36dfd2b4b8cda773d1e49bb1d1e3fa01794d26191ac92612",
+      "forward_mse": 0.0016126075332787032,
+      "constant_mean_mse": 0.0015264841267177824,
+      "mean_prediction": -0.0025997200745093044,
+      "mean_outcome": -0.008064310905748976
+    },
+    {
+      "month": "2025-04",
+      "family": "logistic",
+      "rows": 16702,
+      "model_sha256": "0c5d58bd2b5f76cf98cde46b88e8f4dfb9053964256bb313f599f5252fd290a8",
+      "forward_logloss": 0.6837897235176962,
+      "constant_prior_logloss": 0.6909628833310566,
+      "mean_prediction": 0.44518623029223786,
+      "positive_fraction": 0.46024428212190155
+    },
+    {
+      "month": "2025-04",
+      "family": "ridge",
+      "rows": 16702,
+      "model_sha256": "4edfc03a7b258e4c8646aa18399737c171093c2be177d2ce7b39b49e8cb7ec23",
+      "forward_mse": 0.001398817883292318,
+      "constant_mean_mse": 0.0014396956408644793,
+      "mean_prediction": -0.0033316630622700007,
+      "mean_outcome": -0.002968523487346281
+    },
+    {
+      "month": "2025-05",
+      "family": "logistic",
+      "rows": 17278,
+      "model_sha256": "b97c1c3dbb4b7275684e4dea26d82c68fa72cb4af42df31863622d3942f62a67",
+      "forward_logloss": 0.6831316723674612,
+      "constant_prior_logloss": 0.6852989045039517,
+      "mean_prediction": 0.4366191126870701,
+      "positive_fraction": 0.43731913415904616
+    },
+    {
+      "month": "2025-05",
+      "family": "ridge",
+      "rows": 17278,
+      "model_sha256": "a1b9cf5b7f5a27d3e2c0b2a1c13c6c09b2170d3e3c6c62854980ef5b79366294",
+      "forward_mse": 0.0011937269961225644,
+      "constant_mean_mse": 0.001195304839754695,
+      "mean_prediction": -0.0034692444368055755,
+      "mean_outcome": 0.0025405830207884264
+    },
+    {
+      "month": "2025-06",
+      "family": "logistic",
+      "rows": 16702,
+      "model_sha256": "d82fb784f75b9572a1bcebf05ab010bdc52b8d11236bd6a8503d5e69fcec8c45",
+      "forward_logloss": 0.6897104603666153,
+      "constant_prior_logloss": 0.6789923542157682,
+      "mean_prediction": 0.42924104930449103,
+      "positive_fraction": 0.4104298886360915
+    },
+    {
+      "month": "2025-06",
+      "family": "ridge",
+      "rows": 16702,
+      "model_sha256": "8b42d2dbe4689398aa04420786457b77f4f6c8cdadfa277fdae96dbb464a7ccf",
+      "forward_mse": 0.0008139324698857196,
+      "constant_mean_mse": 0.0007750650278781459,
+      "mean_prediction": -0.0037796706267452457,
+      "mean_outcome": -0.003897596776366198
+    }
+  ]
+}

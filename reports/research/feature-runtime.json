@@ -1,0 +1,8 @@
+{
+  "evaluations": 3000,
+  "reference_seconds": 0.8277303329668939,
+  "optimized_seconds": 0.25289266696199775,
+  "speedup": 3.2730499579542065,
+  "max_absolute_feature_difference": 2.7755575615628914e-17,
+  "note": "Synthetic finite-price histories; same population variance formula, no strategy fitting or market-data evaluation."
+}

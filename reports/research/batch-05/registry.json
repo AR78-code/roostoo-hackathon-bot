@@ -1,0 +1,42 @@
+{
+  "policies": [
+    [
+      "ridge_entry002",
+      0.002,
+      0
+    ],
+    [
+      "ridge_entry005",
+      0.005,
+      0
+    ],
+    [
+      "ridge_entry002_vol01",
+      0.002,
+      0.01
+    ]
+  ],
+  "ridge_penalty": 0.1,
+  "training_target_clip": [
+    -0.15,
+    0.15
+  ],
+  "label_horizon_bars": 288,
+  "availability_buffer_bars": 288,
+  "code_sha256": {
+    "config.py": "4ec74ee4cc0000c682ae1d85eafc690119671fc4bbbf1017af76476b2027ac6e",
+    "strategy.py": "514f91c5ef4863eeac3ffb3ec2e0e9dd11086f01b16b6ea12ed6edc7667b212a",
+    "risk.py": "1caa7ce6dc80f86d4229a482ead6be3df94bbfe14c965ecc3bd30873bfa4fd51",
+    "ml.py": "2828d6e92ab21dfd6c0de5a10dd62a72ddf3f4ffd2d36d1f0da321a3c4107371",
+    "backtesting/__init__.py": "d3833b567f3f9e6b3acc155115f46bdf07cbf70b481d3dd4db4e43e15812ec55",
+    "backtesting/cli.py": "c73b61726da43a901318e9b3f5c0a9b03b0ef1565ad2a3a75360f81d045a2259",
+    "backtesting/data.py": "f8563bc78a251d6cd28db37bc7e4db180d926fe4bc42fe7f6a96e1c965c4e907",
+    "backtesting/metrics.py": "980ddf090bd4173afaf35a6fe0dd847fa91b401afedd261d33cfb4135957637a",
+    "backtesting/report.py": "8223271202e2bb7d5367d3af56993ea682b44d5ab681601fada5960480fb60d6",
+    "backtesting/simulator.py": "7b7e879b45609d988e565e7fdd9cb1a1cf71bb1534024775279fd63f2ea421fe"
+  },
+  "script_sha256": "57cba78e218a0289e2d4dc311b62de37b0dd2b22d2b4815448c7a5f87aa2d021",
+  "feature_script_sha256": "e43ca395d193f1e3dfab274f97df5e5080d617b65ebee48238b0f37ca37882f3",
+  "data_sha256": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde",
+  "protocol": "Earlier training only. Forward March-June monthly resets and continuous chronological model updates. Development only, no validation/test."
+}

@@ -1,0 +1,5 @@
+# Supplemental training history only. This is not a backtest split/selection file.
+interval_seconds = 300
+[training]
+start = "2024-01-01"
+end = "2025-01-01"

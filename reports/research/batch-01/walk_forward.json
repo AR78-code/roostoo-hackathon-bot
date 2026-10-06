@@ -1,0 +1,49 @@
+{
+  "note": "Past-month-selected configs, next-month independent cash starts. No validation/test used. Cash fallback when no candidate has positive compounded past return and >=2 defined monthly scores.",
+  "folds": [
+    {
+      "window": "2025-03",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 2
+    },
+    {
+      "window": "2025-04",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 3
+    },
+    {
+      "window": "2025-05",
+      "selected": "cash_fallback",
+      "net_return": 0,
+      "composite_score": null,
+      "selection_uses_prior_months": 4
+    },
+    {
+      "window": "2025-06",
+      "selected": "trend_2d_8d_010",
+      "selection_uses_prior_months": 5,
+      "composite_score": -5.628172681631472,
+      "net_return": -0.03251736706526398,
+      "final_equity": 96748.2632934736,
+      "max_drawdown": 0.04149987530109922,
+      "sharpe": -4.379766264082546,
+      "sortino": -4.800855808332499,
+      "calmar": -7.979668263579032,
+      "cagr": -0.33115523788266876,
+      "turnover": 1.8885447110317617,
+      "fees": 184.73337071647006,
+      "trade_count": 75,
+      "strategy_trade_count": 73,
+      "mean_exposure": 0.14613403599101477,
+      "full_days_for_ratios": 30,
+      "buy_halt_timestamp": null,
+      "active_days": 8,
+      "start": 1748736000,
+      "end": 1751328000
+    }
+  ]
+}

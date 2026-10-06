@@ -1,0 +1,59 @@
+{
+  "model_type": "ridge",
+  "mean": [
+    4.1651232833202417e-05,
+    0.00025125455658207645,
+    0.0010633408361377112,
+    0.003048280202411297,
+    0.0008603862157994282,
+    0.029057421466982314,
+    0.002393056294722535
+  ],
+  "scale": [
+    0.006526990771118432,
+    0.015992936953140694,
+    0.03196282610999679,
+    0.055022209276483526,
+    0.019130212955973704,
+    0.013915554994624274,
+    0.03647903222165306
+  ],
+  "coefficients": [
+    -0.00011890509938215976,
+    -0.0006700249221616626,
+    -0.0033448382694701213,
+    -3.771177850270351e-05,
+    0.0016008126770220433,
+    0.0015667080051802544,
+    0.0016188651434225932
+  ],
+  "intercept": -0.0031370935311210873,
+  "training_rows": 294334,
+  "training_mse": 0.000959865739812857,
+  "constant_mean_training_mse": 0.0009707477022176666,
+  "fit_settings": {
+    "ridge_penalty": 0.1,
+    "target_clip": [
+      -0.15,
+      0.15
+    ]
+  },
+  "feature_names": [
+    "return_1h",
+    "return_6h",
+    "return_1d",
+    "return_3d",
+    "sma_12h_2d",
+    "daily_volatility",
+    "distance_4d_mean"
+  ],
+  "interval_seconds": 300,
+  "available_at": 1748649600,
+  "last_label_timestamp": 1748649300,
+  "evaluation_start": 1748736000,
+  "data_sha256": {
+    "data/earlier-training/training.csv": "7b9702f3225554506bf9a1f6133d77cd6e2ef341f857de875c4c3b040d063f45",
+    "data/historical/development.csv": "8c21f77ff5ab3c2927024b0c6bb6f8990cecf900858870d50bd59fa0f5c1bcde"
+  },
+  "label_horizon_bars": 288
+}
