@@ -8,6 +8,16 @@ from test_backtesting import frames,spec
 
 
 class ResearchPolicyTests(unittest.TestCase):
+    def test_rotation_hysteresis_holds_neutral_and_exits_confirmed_decline(self):
+        cfg=Config(strategy='rotation_hysteresis',fast_window=2,slow_window=4,signal_threshold=.006)
+        neutral={p:[(i*300,v) for i,v in enumerate([100,100.1,100.2,100.4])] for p in cfg.pairs}
+        self.assertTrue(all(weight is None for _,weight,_ in rotation_targets(neutral,cfg)))
+        falling={p:[(i*300,v) for i,v in enumerate([100,100.1,99,98])] for p in cfg.pairs}
+        self.assertTrue(all(weight==0 for _,weight,_ in rotation_targets(falling,cfg)))
+        neutral['BTC/USD']=[(i*300,v) for i,v in enumerate([100,110,115,120])]
+        self.assertEqual(rotation_targets(neutral,cfg)[0][1],.2)
+        self.assertEqual(rotation_targets(neutral,cfg)[1][1],0)
+
     def test_rotation_selects_strongest_eligible_asset(self):
         cfg=Config(strategy='rotation',fast_window=2,slow_window=4,signal_threshold=.006)
         histories={'BTC/USD':[(i*300,p) for i,p in enumerate([100,110,115,120])],
@@ -26,7 +36,25 @@ class ResearchPolicyTests(unittest.TestCase):
         with self.assertRaises(ValueError):replace(cfg,pairs=('BTC/USD',))
 
     def test_rotation_future_prices_do_not_change_past_trades(self):
-        cfg=Config(strategy='rotation',fast_window=2,slow_window=4,signal_threshold=.006)
+        self.assert_rotation_causality('rotation')
+
+    def test_hysteresis_future_prices_do_not_change_past_trades(self):
+        self.assert_rotation_causality('rotation_hysteresis')
+
+    def test_normalized_future_prices_do_not_change_past_trades(self):
+        self.assert_rotation_causality('rotation_normalized')
+
+    def test_normalized_rotation_is_independent_of_asset_price_units(self):
+        cfg=Config(strategy='rotation_normalized',fast_window=2,slow_window=4,signal_threshold=.5,interval_seconds=86400)
+        rows={'BTC/USD':[(i*86400,p) for i,p in enumerate([100,101,102,104])],
+              'ETH/USD':[(i*86400,p) for i,p in enumerate([100,100,100,100])]}
+        before=rotation_targets(rows,cfg)
+        changed={p:[(t,price*(100 if p=='ETH/USD' else .01)) for t,price in h] for p,h in rows.items()}
+        self.assertEqual(before,rotation_targets(changed,cfg))
+        self.assertEqual(before[0][1],.2)
+
+    def assert_rotation_causality(self,strategy):
+        cfg=Config(strategy=strategy,fast_window=2,slow_window=4,signal_threshold=.006)
         data=frames(30)
         for i,f in enumerate(data):
             bar=f['ETH/USD'];price=(100-i*2)*.05

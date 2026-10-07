@@ -16,7 +16,7 @@ def allocation(prices, config):
 
 def target_weight(history, config):
     """Return a long-only target or None to retain the existing position."""
-    if config.strategy == 'rotation':
+    if config.strategy in ('rotation','rotation_hysteresis','rotation_normalized'):
         raise ValueError('Rotation requires aligned portfolio histories')
     if len(history) < config.slow_window:
         return None, "warming_up"
@@ -32,7 +32,19 @@ def target_weight(history, config):
         if predicted <= config.model_exit_return:
             return 0.0, "ridge_exit"
         return None, "ridge_hold"
-    if config.strategy == "logistic":
+    if config.strategy == "logistic_scaled":
+        from .ml import probability
+        score = probability(recent, config)
+        # A bounded sizing heuristic, not an estimate of Kelly-optimal capital.
+        fraction = max(0.0, min(1.0, (score - config.model_exit_probability) /
+                                  (config.model_entry_probability - config.model_exit_probability)))
+        return allocation(prices, config) * fraction, "model_scaled"
+    if config.strategy in ("logistic", "logistic_trend"):
+        if config.strategy == "logistic_trend":
+            daily = sum(prices[-288:]) / 288
+            multiday = sum(prices[-1152:]) / 1152
+            if prices[-1] <= multiday or daily <= multiday or prices[-1] <= prices[-289]:
+                return 0.0, "model_trend_exit"
         from .ml import probability
         score = probability(recent, config)
         if score >= config.model_entry_probability:
@@ -84,6 +96,24 @@ def rotation_targets(histories,config):
         return hold('history_gap')
     prices={pair:[p for _,p in recent[pair]] for pair in config.pairs}
     strength={pair:rows[-1]/rows[-1-config.fast_window]-1 for pair,rows in prices.items()}
+    if config.strategy in ('rotation_hysteresis','rotation_normalized'):
+        mean={pair:sum(rows)/len(rows) for pair,rows in prices.items()}
+        scores=dict(strength)
+        distance={pair:rows[-1]/mean[pair]-1 for pair,rows in prices.items()}
+        if config.strategy == 'rotation_normalized':
+            # Daily volatility estimated across the complete trailing window.
+            # A fixed 0.5% floor avoids near-zero weekend volatility dominating.
+            daily_vol={pair:max(.005,population_std([math.log(b/a) for a,b in zip(rows,rows[1:])]) * math.sqrt(86400/config.interval_seconds)) for pair,rows in prices.items()}
+            scores={pair:value/daily_vol[pair] for pair,value in strength.items()}
+            distance={pair:value/daily_vol[pair] for pair,value in distance.items()}
+        can_hold={pair for pair in prices if distance[pair]>=-config.signal_threshold and scores[pair]>=-config.signal_threshold}
+        eligible=[pair for pair in prices if distance[pair]>config.signal_threshold and scores[pair]>config.signal_threshold]
+        ranked=sorted(eligible,key=lambda pair:scores[pair],reverse=True)
+        if not ranked or (len(ranked)>1 and scores[ranked[0]]-scores[ranked[1]]<config.signal_threshold):
+            return [(pair,None if pair in can_hold else 0.0,'rotation_neutral_hold' if pair in can_hold else 'rotation_confirmed_exit') for pair in config.pairs]
+        winner=ranked[0]
+        return [(pair,allocation(prices[pair],config) if pair==winner else 0.0,
+                 'rotation_hysteresis_entry' if pair==winner else 'rotation_exit') for pair in config.pairs]
     eligible=[pair for pair in config.pairs if prices[pair][-1]>sum(prices[pair])/len(prices[pair])
               and strength[pair]>config.signal_threshold]
     ranked=sorted(eligible,key=lambda pair:strength[pair],reverse=True)

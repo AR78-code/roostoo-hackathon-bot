@@ -5,6 +5,7 @@ import hashlib
 import io
 import json
 import math
+import re
 from pathlib import Path
 import time
 import tomllib
@@ -118,9 +119,12 @@ def fetch_bytes(url):
             time.sleep(2 ** attempt)
 
 
-def fetch_period(root, name, spec, pairs):
+def fetch_period(root, name, spec, pairs, symbol_map=None):
     """Download official Binance monthly Spot archives and verify SHA256."""
-    if set(pairs) != {"BTC/USD", "ETH/USD"}:
+    if symbol_map is not None:
+        if set(symbol_map) != set(pairs) or any(not isinstance(p,str) or not p.endswith('/USD') or not isinstance(s,str) or re.fullmatch(r'[A-Z0-9]{2,20}USDT',s) is None or s!=p[:-4]+'USDT' for p,s in symbol_map.items()):
+            raise ValueError('Explicit source symbols must match pairs and be plain USDT symbols')
+    elif set(pairs) != {"BTC/USD", "ETH/USD"}:
         raise ValueError("Downloader currently supports BTC/USD and ETH/USD proxies only")
     intervals = {60:"1m", 180:"3m", 300:"5m", 900:"15m", 1800:"30m", 3600:"1h"}
     if spec["interval_seconds"] not in intervals:
@@ -134,7 +138,7 @@ def fetch_period(root, name, spec, pairs):
     provenance = []
     rows = []
     for pair in pairs:
-        symbol = pair.split("/")[0] + "USDT"
+        symbol = symbol_map[pair] if symbol_map is not None else pair.split("/")[0] + "USDT"
         for month in months(start, end):
             interval = intervals[spec["interval_seconds"]]
             filename = f"{symbol}-{interval}-{month}.zip"
@@ -168,6 +172,6 @@ def fetch_period(root, name, spec, pairs):
     temporary.replace(output)
     (root / f"{name}.source.json").write_text(json.dumps({
         "period":name, "csv_sha256":digest(output), "archives":provenance,
-        "quote_currency_assumption":"BTCUSDT/ETHUSDT treated as BTC/USD/ETH/USD; USDT assumed equal to USD"
+        "quote_currency_assumption":"Source USDT pairs treated as configured USD pairs; USDT assumed equal to USD"
     }, indent=2))
     return output

@@ -55,7 +55,10 @@ def plan(pair, weight, wallet, free, quotes, rules, total, halted, cfg):
     coin = pair.split("/")[0]
     held = wallet.get(coin, 0) * quote.last
     delta = weight * total - held
-    if abs(delta) < max(cfg.min_order_usd, cfg.rebalance_band * total):
+    # The allocation deadband limits incidental rebalancing, but a deliberate
+    # cash target should unwind holdings down to exchange/order-size dust.
+    threshold = cfg.min_order_usd if weight == 0 else max(cfg.min_order_usd, cfg.rebalance_band * total)
+    if abs(delta) < threshold:
         return None
     side = "BUY" if delta > 0 else "SELL"
     price = quote.ask * (1 + cfg.slippage) if side == "BUY" else quote.bid * (1 - cfg.slippage)

@@ -104,7 +104,7 @@ class Engine:
         halted = self.state.get("drawdown_halt", False)
         self.state.event("portfolio", {"equity": total, "drawdown": (high - total) / high, "buy_halt": halted, "mode": self.mode})
         decisions = []
-        if self.cfg.strategy=='rotation':
+        if self.cfg.strategy in ('rotation','rotation_hysteresis','rotation_normalized'):
             targets=rotation_targets({pair:self.state.history(pair) for pair in self.cfg.pairs},self.cfg)
         else:
             targets=[(pair,*target_weight(self.state.history(pair),self.cfg)) for pair in self.cfg.pairs]

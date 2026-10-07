@@ -35,7 +35,7 @@ def research(data_dir,output,cfg,spec):
         runs[period]=run_all(frames,cfg,spec,warmup)
         previous=frames
     return write_report(output,runs,cfg,spec,{'test_status':'HELD OUT — not loaded or evaluated','data_sha256':hashes,'code_sha256':code_hashes(),
-        'model_sha256':digest(cfg.model_path) if cfg.strategy in ('logistic','ridge') else None})
+        'model_sha256':digest(cfg.model_path) if cfg.strategy in ('logistic','logistic_scaled','logistic_trend','ridge') else None})
 
 
 def freeze(data_dir,report,selection,cfg,spec):
@@ -47,7 +47,7 @@ def freeze(data_dir,report,selection,cfg,spec):
     hashes={p:digest(Path(data_dir)/f'{p}.csv') for p in ('development','validation')}
     if hashes!=summary['provenance']['data_sha256']:
         raise ValueError('Development/validation data changed since research')
-    model_sha256=digest(cfg.model_path) if cfg.strategy in ('logistic','ridge') else None
+    model_sha256=digest(cfg.model_path) if cfg.strategy in ('logistic','logistic_scaled','logistic_trend','ridge') else None
     if summary['provenance'].get('model_sha256')!=model_sha256:
         raise ValueError('Trained model changed since research; rerun before freezing')
     payload={'config':asdict(cfg),'spec':spec,'data_sha256':hashes,'code_sha256':code_hashes(),
@@ -81,7 +81,7 @@ def _final(data_dir,output,selection,allow_test):
         raise ValueError('Code differs from frozen selection; no test data was loaded')
     cfg_values=dict(payload['config']);cfg_values['pairs']=tuple(cfg_values['pairs'])
     cfg=Config(**cfg_values);spec=payload['spec']
-    if cfg.strategy in ('logistic','ridge') and digest(cfg.model_path)!=payload.get('model_sha256'):
+    if cfg.strategy in ('logistic','logistic_scaled','logistic_trend','ridge') and digest(cfg.model_path)!=payload.get('model_sha256'):
         raise ValueError('Trained model differs from frozen selection')
     from .data import validate_spec
     validate_spec(spec)

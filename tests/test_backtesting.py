@@ -238,10 +238,20 @@ class DataTests(unittest.TestCase):
             with patch('trading_bot.backtesting.data.fetch_bytes',side_effect=lambda url:checksum if url.endswith('.CHECKSUM') else raw):
                 fetch_period(folder,'development',self.spec,self.pairs)
             self.assertEqual(len(load_period(folder/'development.csv','development',self.spec,self.pairs)),288)
+            mapping={'BNB/USD':'BNBUSDT','SOL/USD':'SOLUSDT','PAXG/USD':'PAXGUSDT'}
+            extra=folder/'expanded'
+            with patch('trading_bot.backtesting.data.fetch_bytes',side_effect=lambda url:checksum if url.endswith('.CHECKSUM') else raw):
+                fetch_period(extra,'development',self.spec,tuple(mapping),mapping)
+            self.assertEqual(len(load_period(extra/'development.csv','development',self.spec,tuple(mapping))),288)
 
     def test_checksum_failure_rejected(self):
         with patch('trading_bot.backtesting.data.fetch_bytes',side_effect=[b'zip',b'bad']):
             with self.assertRaises(ValueError):fetch_period(self.root,'development',self.spec,self.pairs)
+
+    def test_explicit_symbol_map_rejects_mismatches_and_url_paths(self):
+        for mapping in ({'BTC/USD':'BTCUSDT'}, {'BTC/USD':'../BTCUSDT','ETH/USD':'ETHUSDT'}, {'BTC/USD':42,'ETH/USD':'ETHUSDT'}, {'BTC/USD':'ETHUSDT','ETH/USD':'BTCUSDT'}):
+            with patch('trading_bot.backtesting.data.fetch_bytes',side_effect=AssertionError('network')):
+                with self.assertRaises(ValueError):fetch_period(self.root,'development',self.spec,self.pairs,mapping)
 
 
 class HoldoutTests(unittest.TestCase):

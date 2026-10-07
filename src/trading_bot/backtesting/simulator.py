@@ -78,7 +78,7 @@ def simulate(frames, cfg, spec, warmup=None, model_schedule=None):
     # Research-only chronological artifact updates. Risk/execution configuration
     # must stay fixed so cash, holdings and the drawdown latch remain comparable.
     schedule=list(model_schedule or [])
-    if schedule and cfg.strategy not in ('ridge','logistic'):
+    if schedule and cfg.strategy not in ('ridge','logistic','logistic_scaled','logistic_trend'):
         raise ValueError('Artifact schedules require a trained policy')
     if any(b[0]<=a[0] for a,b in zip(schedule,schedule[1:])):
         raise ValueError('Artifact update times must be strictly increasing')
@@ -99,7 +99,7 @@ def simulate(frames, cfg, spec, warmup=None, model_schedule=None):
     def decisions(histories,known_at):
         selected=decision_config(known_at)
         rows={pair:list(histories[pair]) for pair in cfg.pairs}
-        if selected.strategy=='rotation':
+        if selected.strategy in ('rotation','rotation_hysteresis','rotation_normalized'):
             return rotation_targets(rows,selected)
         return [(pair,*target_weight(rows[pair],selected)) for pair in cfg.pairs]
     result = Result('strategy')

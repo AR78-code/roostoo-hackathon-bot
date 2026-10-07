@@ -32,15 +32,15 @@ class Config:
     paper_cash: float = 100000
 
     def __post_init__(self):
-        if self.strategy not in ("sma", "breakout", "logistic", "pullback", "ridge", "rotation"):
+        if self.strategy not in ("sma", "breakout", "logistic", "logistic_scaled", "logistic_trend", "pullback", "ridge", "rotation", "rotation_hysteresis", "rotation_normalized"):
             raise ValueError("Unsupported strategy")
         if not isinstance(self.model_path, str):
             raise ValueError("model_path must be a string")
-        if self.strategy in ("logistic", "ridge") and (not self.model_path or self.slow_window < 1153 or self.interval_seconds != 300):
+        if self.strategy in ("logistic", "logistic_scaled", "logistic_trend", "ridge") and (not self.model_path or self.slow_window < 1153 or self.interval_seconds != 300):
             raise ValueError("Trained policy requires a model file and 1153 five-minute samples")
         if not self.pairs or len(set(self.pairs)) != len(self.pairs):
             raise ValueError("pairs must be nonempty and unique")
-        if self.strategy=='rotation' and len(self.pairs)<2:
+        if self.strategy in ('rotation','rotation_hysteresis','rotation_normalized') and len(self.pairs)<2:
             raise ValueError("Rotation requires at least two configured assets")
         if any(not isinstance(p, str) or p.count("/") != 1 or not p.endswith("/USD") for p in self.pairs):
             raise ValueError("Only BASE/USD pairs are supported")

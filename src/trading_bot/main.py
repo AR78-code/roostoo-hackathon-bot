@@ -7,12 +7,25 @@ from pathlib import Path
 import signal
 import sys
 import threading
+import time
+import math
 
 from .client import APIError, Client
 from .config import load
 from .demo import DemoClient
 from .engine import Engine
 from .state import ProcessLock, State
+
+
+def next_cycle_delay(interval, offset_ms, failures, now):
+    """Anchor polls to server-time buckets instead of accumulating request time."""
+    corrected = now + offset_ms / 1000
+    # One second into the next bucket; successful calls keep the same phase.
+    next_bucket = (math.floor(corrected / interval) + 1) * interval + 1
+    if failures:
+        next_bucket += interval * (2 ** min(failures, 3) - 1)
+    delay = max(1.0, next_bucket - corrected)
+    return min(3600, delay) if failures else delay
 
 
 def main():
@@ -80,7 +93,7 @@ def main():
             if args.once or (mode == "demo" and iterations >= args.cycles):
                 break
             if mode != "demo":
-                stop.wait(min(3600, cfg.interval_seconds * 2 ** min(failures, 3)))
+                stop.wait(next_cycle_delay(cfg.interval_seconds, client.offset_ms, failures, time.time()))
         if mode == "demo":
             count = state.db.execute("SELECT COUNT(*) FROM orders WHERE status='FILLED'").fetchone()[0]
             print(f"Offline demo complete: {iterations} cycles, {count} paper fills; state: {root}")

@@ -108,6 +108,15 @@ class RiskTests(unittest.TestCase):
     def test_locked_coins_not_sold(self):
         self.assertIsNone(plan('BTC/USD', 0, {'USD':80000, 'BTC':200}, {'USD':80000, 'BTC':0}, self.quotes, self.rules, 100000, False, self.cfg))
 
+    def test_cash_target_exits_below_band_but_respects_dust_and_free_holdings(self):
+        wallet={'USD':99000,'BTC':10}
+        order=plan('BTC/USD',0,wallet,{'USD':99000,'BTC':3},self.quotes,self.rules,100000,True,self.cfg)
+        self.assertEqual(order[0],'SELL')
+        self.assertLessEqual(float(order[1]),3)
+        self.assertIsNone(plan('BTC/USD',.005,wallet,wallet,self.quotes,self.rules,100000,False,self.cfg))
+        dust={'USD':99990,'BTC':.1}
+        self.assertIsNone(plan('BTC/USD',0,dust,dust,self.quotes,self.rules,100000,False,self.cfg))
+
     def test_wide_spread_blocks_orders(self):
         self.quotes['BTC/USD'] = Quote(100, 99, 101)
         self.assertIsNone(plan('BTC/USD', .2, {'USD':100000}, {'USD':100000}, self.quotes, self.rules, 100000, False, self.cfg))

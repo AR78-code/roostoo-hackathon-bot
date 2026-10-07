@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import math
 from trading_bot.config import Config
 from trading_bot.ml import FEATURE_NAMES,LOOKBACK,features,load_model,probability,expected_return
 from trading_bot.strategy import target_weight
@@ -78,6 +79,36 @@ class ModelTests(unittest.TestCase):
     def test_model_prediction_and_policy_threshold(self):
         self.assertAlmostEqual(probability(self.history,self.cfg),.8807970779778823)
         self.assertEqual(target_weight(self.history,self.cfg),(.2,'model_entry'))
+
+    def test_scaled_allocation_is_bounded_and_rejects_future_model(self):
+        cfg=replace(self.cfg,strategy='logistic_scaled',model_exit_probability=.5)
+        for score,weight in ((.4,0),(.5,0),(.55,.1),(.6,.2),(.9,.2)):
+            self.model['intercept']=math.log(score/(1-score))
+            self.path.write_text(json.dumps(self.model))
+            actual,reason=target_weight(self.history,cfg)
+            self.assertAlmostEqual(actual,weight)
+            self.assertEqual(reason,'model_scaled')
+        self.model['available_at']=self.history[-1][0]+600
+        self.path.write_text(json.dumps(self.model))
+        with self.assertRaises(ValueError):target_weight(self.history,cfg)
+        self.assertEqual(target_weight(self.history[:-1],cfg),(None,'warming_up'))
+
+    def test_scaled_artifact_freeze_integrity(self):
+        self.cfg=replace(self.cfg,strategy='logistic_scaled')
+        self.test_freeze_and_final_detect_model_replacement()
+
+    def test_trend_filter_rejects_downtrend_despite_confident_model(self):
+        cfg=replace(self.cfg,strategy='logistic_trend')
+        self.assertEqual(target_weight(self.history,cfg),(.2,'model_entry'))
+        falling=[(i*300,120-i*.01) for i in range(LOOKBACK)]
+        self.assertEqual(target_weight(falling,cfg),(0.0,'model_trend_exit'))
+        self.model['available_at']=self.history[-1][0]+600
+        self.path.write_text(json.dumps(self.model))
+        with self.assertRaises(ValueError):target_weight(self.history,cfg)
+
+    def test_trend_artifact_freeze_integrity(self):
+        self.cfg=replace(self.cfg,strategy='logistic_trend')
+        self.test_freeze_and_final_detect_model_replacement()
 
     def test_future_trained_model_rejected(self):
         self.model['available_at']=self.history[-1][0]+600
