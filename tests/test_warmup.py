@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from trading_bot.config import Config
 from trading_bot.state import State
 from trading_bot.warmup import fetch_closes, seed
@@ -24,9 +25,24 @@ class WarmupTests(unittest.TestCase):
                 original = state.get('paper_wallet')
                 seed(state, *self.fixture(state))
                 self.assertEqual(len(state.history('BTC/USD')), 4)
+                self.assertEqual(state.history('BTC/USD')[-1], (3000,100.0))
                 self.assertEqual(state.get('paper_wallet'), original)
                 self.assertEqual(state.db.execute('SELECT COUNT(*) FROM orders').fetchone()[0], 0)
                 with self.assertRaises(ValueError): seed(state, *self.fixture(state))
+            finally: state.close()
+
+    def test_current_roostoo_sample_bridges_start_in_next_bucket(self):
+        from trading_bot.strategy import target_weight
+        with tempfile.TemporaryDirectory() as directory:
+            state = State(Path(directory)/'state.db', 'paper', 100000)
+            try:
+                cfg,histories,cutoff,snapshot,now=self.fixture(state)
+                snapshot['Data']['BTC/USD']['LastPrice']=101
+                seed(state,cfg,histories,cutoff,snapshot,now)
+                self.assertEqual(state.history('BTC/USD')[-1],(cutoff,101))
+                state.sample('BTC/USD',cutoff+300,102,cfg.slow_window)
+                _,reason=target_weight(state.history('BTC/USD'),cfg)
+                self.assertNotIn(reason,('warming_up','history_gap'))
             finally: state.close()
 
     def test_gap_or_price_mismatch_in_second_pair_writes_nothing(self):
@@ -64,6 +80,13 @@ class WarmupTests(unittest.TestCase):
         def unfinished(url,timeout):
             return io.BytesIO(json.dumps([[1800000,0,0,0,'100',0,2400000]]).encode())
         with self.assertRaises(ValueError): fetch_closes('BTC/USD',2,2400,unfinished)
+
+    def test_immediate_paper_check_is_rejected_in_live_mode(self):
+        from trading_bot.warmup import main
+        with patch('sys.argv',['warmup','--config','config/bot.toml','--mode','live','--state-dir','unused','--paper-check']), patch('sys.stderr',io.StringIO()), patch('trading_bot.warmup.Client') as client:
+            with self.assertRaises(SystemExit) as raised: main()
+            self.assertEqual(raised.exception.code,2)
+            client.assert_not_called()
 
 
 if __name__ == '__main__': unittest.main()

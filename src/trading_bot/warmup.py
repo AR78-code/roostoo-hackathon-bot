@@ -77,8 +77,11 @@ def seed(state, cfg, histories, cutoff, snapshot, now):
         quote = float(snapshot["Data"][pair]["LastPrice"])
         if not math.isfinite(quote) or quote <= 0 or abs(rows[-1][1] / quote - 1) > .02:
             raise ValueError("Public close differs from Roostoo by more than 2%; refuse seeding")
-        records.extend((pair, ts, p) for ts, p in rows)
-    detail = {"source": "Binance Spot five-minute completed USDT closes",
+        # The current Roostoo observation is already known, not a future close.
+        # Include it so an immediate start across a bucket boundary has no gap.
+        records.extend((pair, ts, p) for ts, p in rows[1:])
+        records.append((pair, cutoff, quote))
+    detail = {"source": "Binance completed USDT closes plus current public Roostoo ticker",
         "cutoff": cutoff, "count_per_pair": cfg.slow_window,
         "quote_assumption": "USDT proxies USD; price check tolerance2%, not proof of identical feeds",
         "sha256": hashlib.sha256(json.dumps(records).encode()).hexdigest()}
@@ -94,7 +97,10 @@ def main():
     parser.add_argument("--config", required=True)
     parser.add_argument("--mode", choices=("paper", "live"), required=True)
     parser.add_argument("--state-dir", required=True)
+    parser.add_argument("--paper-check", action="store_true", help="Immediately run one paper cycle under the same process lock")
     args = parser.parse_args()
+    if args.paper_check and args.mode != "paper":
+        parser.error("--paper-check is permitted only in paper mode")
     cfg = load(args.config)
     if cfg.interval_seconds != 300:
         parser.error("Only five-minute configurations are supported")
@@ -112,7 +118,13 @@ def main():
         detail = seed(state, cfg, histories, cutoff, snapshot, time.time())
         state.event("historical_warmup_responses", hashes)
         print(json.dumps(detail, indent=2))
-        print("Price history seeded. No orders submitted; bot service has not been started.")
+        print("Price history seeded. No competition orders submitted; bot service has not been started.")
+        if args.paper_check:
+            from .engine import Engine
+            import logging
+            logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+            Engine(Client(key="", secret=""), state, cfg, "paper").cycle()
+            print("Immediate paper cycle completed. No competition orders submitted.")
     finally:
         if state is not None:
             state.close()
