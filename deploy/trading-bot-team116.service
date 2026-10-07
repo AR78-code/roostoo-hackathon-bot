@@ -1,0 +1,20 @@
+# Reviewed installation paths for the existing Team116 Amazon Linux instance.
+# Provisional policy has negative historical development returns.
+[Unit]
+Description=Roostoo trading bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ssm-user
+WorkingDirectory=/home/ssm-user/roostoo-hackathon-bot
+Environment=PYTHONPATH=/home/ssm-user/roostoo-hackathon-bot/src
+EnvironmentFile=/home/ssm-user/roostoo-hackathon-bot/.env
+ExecStart=/usr/bin/python3.11 -m trading_bot.main run --config config/provisional-live.toml --mode live --state-dir /home/ssm-user/roostoo-hackathon-bot/state/live
+Restart=on-failure
+RestartSec=30
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
